@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:usa_in_ua/pages/splash/splash_screen.dart';
+import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/routes/routes.dart';
 
 void main() {
@@ -17,7 +18,10 @@ class MyApp extends StatelessWidget {
       statusBarColor: Colors.transparent, //top bar color
     ));
 
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.white,
+      ),
       initialRoute: SpalshScreen.routeName,
       onGenerateRoute: RouteGenerator.generateRoute,
     );

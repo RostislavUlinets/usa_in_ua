@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:usa_in_ua/pages/authorization/login_screen.dart';
 import 'package:usa_in_ua/pages/splash/splash_screen.dart';
 
 class RouteGenerator {
@@ -8,6 +8,10 @@ class RouteGenerator {
       case SpalshScreen.routeName:
         return MaterialPageRoute(
           builder: (context) => const SpalshScreen(),
+        );
+      case LoginScreen.routeName:
+        return MaterialPageRoute(
+          builder: (context) => const LoginScreen(),
         );
       default:
         return _errorRoute();
