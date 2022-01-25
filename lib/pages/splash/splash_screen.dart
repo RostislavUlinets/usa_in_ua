@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
 import 'package:usa_in_ua/resources/app_image.dart';
 

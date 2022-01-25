@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
-import 'package:usa_in_ua/resources/app_icons.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login_screen';
@@ -21,7 +19,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Вход',
               style: TextStyle(
                 color: AppColors.text,
