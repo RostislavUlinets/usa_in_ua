@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
+import 'package:usa_in_ua/resources/app_icons.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login_screen';
@@ -10,6 +11,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 70.0,
@@ -30,7 +32,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30.0),
+              padding: const EdgeInsets.symmetric(vertical: 40.0),
               child: Column(
                 children: [
                   Container(
@@ -106,6 +108,109 @@ class LoginScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: AppColors.green,
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.green.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 8), // changes position of shadow
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0,bottom: 60),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        AppIcons.locker,
+                        const Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: Text(
+                            'Напомнить пароль',
+                            style: TextStyle(
+                              color: AppColors.text,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        AppIcons.addUser,
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Text(
+                            'Зарегистрироваться',
+                            style: TextStyle(
+                              color: AppColors.text,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Войти как пользователь',
+                          style: TextStyle(
+                            color: AppColors.text,
+                          ),
+                        ),
+                        AppIcons.googleLogo,
+                      ],
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: AppColors.button,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Войти как пользователь',
+                          style: TextStyle(
+                            color: AppColors.text,
+                          ),
+                        ),
+                        AppIcons.facebookLogo,
+                      ],
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: AppColors.button,
+                  ),
                 ),
               ),
             ),
