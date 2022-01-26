@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
@@ -97,7 +96,7 @@ class RegistrationScreen extends StatelessWidget {
                       child: TextField(
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'Ваш Номер телефона*',
+                          hintText: 'Ваш номер телефона*',
                           hintStyle: TextStyle(
                             color: AppColors.notActive,
                             fontSize: 14,
