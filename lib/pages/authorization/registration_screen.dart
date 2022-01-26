@@ -3,10 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
-class LoginScreen extends StatelessWidget {
-  static const String routeName = '/login_screen';
+class RegistrationScreen extends StatelessWidget {
+  static const String routeName = '/registration';
 
-  const LoginScreen({Key? key}) : super(key: key);
+  const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: 70.0,
+          vertical: 50.0,
           horizontal: 30.0,
         ),
         child: Column(
@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Вход',
+              'Регистрация',
               style: TextStyle(
                 color: AppColors.text,
                 fontSize: 40,
@@ -32,9 +32,64 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40.0),
+              padding: const EdgeInsets.only(
+                top: 40.0,
+                bottom: 10,
+              ),
               child: Column(
                 children: [
+                  Container(
+                    child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Ваше имя*',
+                          hintStyle: TextStyle(
+                            color: AppColors.notActive,
+                            fontSize: 14,
+                            fontFamily: 'lato',
+                            letterSpacing: 1,
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.base,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 15.0,
+                        vertical: 5.0,
+                      ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Ваш email*',
+                          hintStyle: TextStyle(
+                            color: AppColors.notActive,
+                            fontSize: 14,
+                            fontFamily: 'lato',
+                            letterSpacing: 1,
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.base,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Container(
                     child: const Padding(
                       padding:
@@ -57,38 +112,29 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                ],
+              ),
+            ),
+            RichText(
+              text: const TextSpan(
+                style: TextStyle(
+                  color: AppColors.text,
+                ),
+                children: [
+                  TextSpan(
+                    text: 'Регистрируясь, Вы соглашаетесь с\n',
                   ),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15.0, vertical: 5.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Ваш пороль*',
-                          hintStyle: const TextStyle(
-                            color: AppColors.notActive,
-                            fontSize: 14,
-                            fontFamily: 'lato',
-                            letterSpacing: 1,
-                          ),
-                          suffixIcon: IconButton(
-                            iconSize: 14,
-                            icon: SvgPicture.asset('assets/icons/viewer.svg'),
-                            onPressed: () {},
-                          ),
-                        ),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.base,
-                      borderRadius: BorderRadius.circular(15),
+                  TextSpan(
+                    text: 'пользовательским соглашением',
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 30,
             ),
             GestureDetector(
               child: Container(
@@ -98,7 +144,6 @@ class LoginScreen extends StatelessWidget {
                 child: const Text(
                   'Войти',
                   style: TextStyle(
-                    fontFamily: 'lato',
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 1,
@@ -120,36 +165,18 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30.0, bottom: 60),
+              padding: const EdgeInsets.only(top: 30.0, bottom: 30),
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {},
                     child: Row(
                       children: [
-                        AppIcons.locker,
+                        AppIcons.password,
                         const Padding(
                           padding: EdgeInsets.all(15.0),
                           child: Text(
-                            'Напомнить пароль',
-                            style: TextStyle(
-                              color: AppColors.text,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Row(
-                      children: [
-                        AppIcons.addUser,
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 15.0),
-                          child: Text(
-                            'Зарегистрироваться',
+                            'Я уже зарегистрирован',
                             style: TextStyle(
                               color: AppColors.text,
                               fontWeight: FontWeight.w800,

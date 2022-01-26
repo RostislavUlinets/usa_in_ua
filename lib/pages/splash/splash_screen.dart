@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
+import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/resources/app_image.dart';
 
 class SpalshScreen extends StatelessWidget {
@@ -12,7 +13,8 @@ class SpalshScreen extends StatelessWidget {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        // Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, RegistrationScreen.routeName);
       },
     );
 

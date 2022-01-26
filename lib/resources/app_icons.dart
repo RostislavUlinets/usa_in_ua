@@ -10,4 +10,5 @@ class AppIcons {
   static SvgPicture addUser = SvgPicture.asset('$_path/add_user.svg');
   static SvgPicture googleLogo = SvgPicture.asset('$_path/google_logo.svg');
   static SvgPicture facebookLogo = SvgPicture.asset('$_path/facebook_logo.svg');
+  static SvgPicture password = SvgPicture.asset('$_path/password.svg');
 }

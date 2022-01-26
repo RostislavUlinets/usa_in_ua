@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.white,
+        fontFamily: 'lato',
       ),
       initialRoute: SpalshScreen.routeName,
       onGenerateRoute: RouteGenerator.generateRoute,
