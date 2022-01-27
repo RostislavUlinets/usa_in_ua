@@ -1,12 +1,17 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 import 'package:usa_in_ua/models/auth/core/errors.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
 
+@LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
@@ -24,9 +29,29 @@ class FirebaseAuthFacade implements IAuthFacade {
     try {
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumberStr,
-        verificationCompleted: (PhoneAuthCredential credential) {},
-        verificationFailed: (FirebaseAuthException e) {},
-        codeSent: (String verificationId, int? resendToken) {},
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          UserCredential _userCredential =
+              await _firebaseAuth.signInWithCredential(credential);
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          log(e.toString());
+        },
+        codeSent: (String verificationId, int? resendToken) async {
+          // final code = await Navigator.push(
+          //   // context,
+          //   // MaterialPageRoute(
+          //   //   builder: (context) => CodeSent(),
+          //   // ),
+          // );
+
+          // AuthCredential credential = PhoneAuthProvider.credential(
+          //   verificationId: verificationId,
+          //   smsCode: code,
+          // );
+
+          // UserCredential result =
+          //     await _firebaseAuth.signInWithCredential(credential);
+        },
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
       return right(unit);
