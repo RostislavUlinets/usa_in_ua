@@ -69,7 +69,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             isSubmitting: true,
             authFailureOrSuccessOption: none(),
           );
-          failureOrSuccess = await _authFacade.signInWithEmailAndPassword(
+          failureOrSuccess = await _authFacade.signInWithPhoneNumberAndPassword(
             phoneNumber: state.phoneNumber,
             password: state.password,
           );

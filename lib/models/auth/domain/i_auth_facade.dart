@@ -6,7 +6,7 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithPhoneNumber({
     required PhoneNumber phoneNumber,
   });
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
+  Future<Either<AuthFailure, Unit>> signInWithPhoneNumberAndPassword({
     required PhoneNumber phoneNumber,
     required Password password,
   });
