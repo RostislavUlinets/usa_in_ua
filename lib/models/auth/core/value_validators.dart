@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:usa_in_ua/models/auth/core/failures.dart';
 
 Either<ValueFailure<String>, String> validationPhoneNumber(String input) {
-  const phoneNumberRegex = r"""^(?:[+0]9)?[0-9]{10}$""";
+  const phoneNumberRegex = r'(^(?:[+]9)?[0-9]{10,12}$)';
 
   if (RegExp(phoneNumberRegex).hasMatch(input)) {
     return right(input);

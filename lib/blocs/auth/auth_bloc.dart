@@ -29,7 +29,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (event, emit) async {
         emit(
           state.copyWith(
-            phoneNumber: PhoneNumber(event.password),
+            password: Password(event.password),
             authFailureOrSuccessOption: none(),
           ),
         );

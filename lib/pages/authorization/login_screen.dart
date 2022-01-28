@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,7 +14,25 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthBloc, AuthState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold(
+            (failure) {
+              FlushbarHelper.createError(
+                message: failure.map(
+                  cancelledByUser: (_) => 'Cancelled',
+                  serverError: (_) => 'Server error',
+                  phoneNumberAlreadyInUse: (_) => 'Phone number already in use',
+                  invalidPhoneNumberAndPasswordCombination: (_) =>
+                      'Invalid phone number and password combination',
+                ),
+              ).show(context);
+            },
+            (_) {},
+          ),
+        );
+      },
       builder: (context, state) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
@@ -116,8 +135,7 @@ class LoginScreen extends StatelessWidget {
                                   .value
                                   .fold(
                                     (f) => f.maybeMap(
-                                      shortPassword: (_) =>
-                                          'Short Password',
+                                      shortPassword: (_) => 'Short Password',
                                       orElse: () => null,
                                     ),
                                     (_) => null,
@@ -214,12 +232,11 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
                     child: GestureDetector(
-                                          onTap: () {
-                      context.read<AuthBloc>().add(
-                            const AuthEvent
-                                .signInWithGooglePressed(),
-                          );
-                    },
+                      onTap: () {
+                        context.read<AuthBloc>().add(
+                              const AuthEvent.signInWithGooglePressed(),
+                            );
+                      },
                       child: Container(
                         child: Padding(
                           padding: const EdgeInsets.all(15.0),
