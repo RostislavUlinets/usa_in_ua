@@ -36,8 +36,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         verificationFailed: (FirebaseAuthException e) {
           log(e.toString());
         },
-        codeSent: (String verificationId, int? resendToken) async {
-         },
+        codeSent: (String verificationId, int? resendToken) async {},
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
       return right(unit);
@@ -47,6 +46,67 @@ class FirebaseAuthFacade implements IAuthFacade {
       } else {
         return left(const AuthFailure.serverError());
       }
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, String>> verifyPhoneNumber({
+    required PhoneNumber phoneNumber,
+  }) async {
+    final phoneNumberStr = phoneNumber.getOrCrash();
+    late final String verificationCode;
+    try {
+      await _firebaseAuth.verifyPhoneNumber(
+        phoneNumber: phoneNumberStr,
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          UserCredential _userCredential =
+              await _firebaseAuth.signInWithCredential(credential);
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          log(e.toString());
+        },
+        codeSent: (String verificationId, int? resendToken) async {
+          verificationCode = verificationId;
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {
+          verificationCode = verificationId;
+        },
+      );
+      return right(verificationCode);
+    } on PlatformException catch (e) {
+      if (e.code == 'phone-number-already-exists') {
+        return left(const AuthFailure.phoneNumberAlreadyInUse());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> confirmOTP({
+    required String verificationCode,
+    required String otpCode,
+  }) async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithCredential(
+        PhoneAuthProvider.credential(
+          verificationId: verificationCode,
+          smsCode: otpCode,
+        ),
+      )
+          .then(
+        (value) {
+          if (value.user != null) {
+            return right(unit);
+          }
+        },
+      );
+      return left(const AuthFailure.serverError());
+    } on FirebaseAuthException catch (_) {
+      return left(const AuthFailure.serverError());
+    } on PlatformException catch (_) {
+      return left(const AuthFailure.cancelledByUser());
     }
   }
 

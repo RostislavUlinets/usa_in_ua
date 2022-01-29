@@ -6,6 +6,13 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithPhoneNumber({
     required PhoneNumber phoneNumber,
   });
+  Future<Either<AuthFailure, String>> verifyPhoneNumber({
+    required PhoneNumber phoneNumber,
+  });
+  Future<Either<AuthFailure, Unit>> confirmOTP({
+    required String verificationCode,
+    required String otpCode,
+  });
   Future<Either<AuthFailure, Unit>> signInWithPhoneNumberAndPassword({
     required PhoneNumber phoneNumber,
     required Password password,
