@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
+import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
@@ -209,7 +210,12 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              RegistrationScreen.routeName,
+                            );
+                          },
                           child: Row(
                             children: [
                               AppIcons.addUser,

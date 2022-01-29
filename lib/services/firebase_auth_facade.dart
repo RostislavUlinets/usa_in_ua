@@ -37,21 +37,7 @@ class FirebaseAuthFacade implements IAuthFacade {
           log(e.toString());
         },
         codeSent: (String verificationId, int? resendToken) async {
-          // final code = await Navigator.push(
-          //   // context,
-          //   // MaterialPageRoute(
-          //   //   builder: (context) => CodeSent(),
-          //   // ),
-          // );
-
-          // AuthCredential credential = PhoneAuthProvider.credential(
-          //   verificationId: verificationId,
-          //   smsCode: code,
-          // );
-
-          // UserCredential result =
-          //     await _firebaseAuth.signInWithCredential(credential);
-        },
+         },
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
       return right(unit);

@@ -8,6 +8,7 @@ class AuthState with _$AuthState {
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+    String? verificationCode,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(

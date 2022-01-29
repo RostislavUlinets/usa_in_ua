@@ -859,13 +859,15 @@ class _$AuthStateTearOff {
       required Password password,
       required bool showErrorMessages,
       required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
+      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      String? verificationCode}) {
     return _AuthState(
       phoneNumber: phoneNumber,
       password: password,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
+      verificationCode: verificationCode,
     );
   }
 }
@@ -881,6 +883,7 @@ mixin _$AuthState {
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  String? get verificationCode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -896,7 +899,8 @@ abstract class $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool isSubmitting,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      String? verificationCode});
 }
 
 /// @nodoc
@@ -914,6 +918,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? verificationCode = freezed,
   }) {
     return _then(_value.copyWith(
       phoneNumber: phoneNumber == freezed
@@ -936,6 +941,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      verificationCode: verificationCode == freezed
+          ? _value.verificationCode
+          : verificationCode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -951,7 +960,8 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool isSubmitting,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      String? verificationCode});
 }
 
 /// @nodoc
@@ -970,6 +980,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? verificationCode = freezed,
   }) {
     return _then(_AuthState(
       phoneNumber: phoneNumber == freezed
@@ -992,6 +1003,10 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      verificationCode: verificationCode == freezed
+          ? _value.verificationCode
+          : verificationCode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1004,7 +1019,8 @@ class _$_AuthState implements _AuthState {
       required this.password,
       required this.showErrorMessages,
       required this.isSubmitting,
-      required this.authFailureOrSuccessOption});
+      required this.authFailureOrSuccessOption,
+      this.verificationCode});
 
   @override
   final PhoneNumber phoneNumber;
@@ -1016,10 +1032,12 @@ class _$_AuthState implements _AuthState {
   final bool isSubmitting;
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
+  @override
+  final String? verificationCode;
 
   @override
   String toString() {
-    return 'AuthState(phoneNumber: $phoneNumber, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'AuthState(phoneNumber: $phoneNumber, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, verificationCode: $verificationCode)';
   }
 
   @override
@@ -1035,7 +1053,9 @@ class _$_AuthState implements _AuthState {
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
             const DeepCollectionEquality().equals(
-                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
+                other.authFailureOrSuccessOption, authFailureOrSuccessOption) &&
+            const DeepCollectionEquality()
+                .equals(other.verificationCode, verificationCode));
   }
 
   @override
@@ -1045,7 +1065,8 @@ class _$_AuthState implements _AuthState {
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption),
+      const DeepCollectionEquality().hash(verificationCode));
 
   @JsonKey(ignore: true)
   @override
@@ -1059,8 +1080,8 @@ abstract class _AuthState implements AuthState {
       required Password password,
       required bool showErrorMessages,
       required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>>
-          authFailureOrSuccessOption}) = _$_AuthState;
+      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      String? verificationCode}) = _$_AuthState;
 
   @override
   PhoneNumber get phoneNumber;
@@ -1072,6 +1093,8 @@ abstract class _AuthState implements AuthState {
   bool get isSubmitting;
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  @override
+  String? get verificationCode;
   @override
   @JsonKey(ignore: true)
   _$AuthStateCopyWith<_AuthState> get copyWith =>
