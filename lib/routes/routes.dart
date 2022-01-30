@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
+import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
 import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/pages/splash/splash_screen.dart';
 
@@ -17,6 +18,10 @@ class RouteGenerator {
       case RegistrationScreen.routeName:
         return MaterialPageRoute(
           builder: (context) => const RegistrationScreen(),
+        );
+      case OtpScreen.routeName:
+        return MaterialPageRoute(
+          builder: (context) => const OtpScreen(),
         );
       default:
         return _errorRoute();

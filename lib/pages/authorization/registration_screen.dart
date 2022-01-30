@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
@@ -136,6 +137,9 @@ class RegistrationScreen extends StatelessWidget {
               height: 30,
             ),
             GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, OtpScreen.routeName);
+              },
               child: Container(
                 width: double.infinity,
                 height: 50,
