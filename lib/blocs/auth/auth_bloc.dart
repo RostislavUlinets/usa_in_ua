@@ -35,6 +35,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
     );
+    on<EmailChanged>(
+      (event, emit) async {
+        emit(
+          state.copyWith(
+            emailAddress: EmailAddress(event.email),
+            authFailureOrSuccessOption: none(),
+          ),
+        );
+      },
+    );
     on<RegisterWithPhoneNumberPressed>(
       (event, emit) async {
         Either<AuthFailure, Unit>? failureOrSuccess;

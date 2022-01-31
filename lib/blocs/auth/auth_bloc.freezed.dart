@@ -24,6 +24,12 @@ class _$AuthEventTearOff {
     );
   }
 
+  EmailChanged emailChanged(String email) {
+    return EmailChanged(
+      email,
+    );
+  }
+
   PasswordChanged passwordChanged(String password) {
     return PasswordChanged(
       password,
@@ -52,6 +58,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() registerWithPhoneNumberPressed,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
@@ -61,6 +68,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -70,6 +78,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -80,6 +89,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(RegisterWithPhoneNumberPressed value)
         registerWithPhoneNumberPressed,
@@ -92,6 +102,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -103,6 +114,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -196,6 +208,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() registerWithPhoneNumberPressed,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
@@ -208,6 +221,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -220,6 +234,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -236,6 +251,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(RegisterWithPhoneNumberPressed value)
         registerWithPhoneNumberPressed,
@@ -251,6 +267,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -265,6 +282,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -286,6 +304,170 @@ abstract class PhoneNumberChanged implements AuthEvent {
   String get phoneNumber;
   @JsonKey(ignore: true)
   $PhoneNumberChangedCopyWith<PhoneNumberChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $EmailChangedCopyWith<$Res> {
+  factory $EmailChangedCopyWith(
+          EmailChanged value, $Res Function(EmailChanged) then) =
+      _$EmailChangedCopyWithImpl<$Res>;
+  $Res call({String email});
+}
+
+/// @nodoc
+class _$EmailChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $EmailChangedCopyWith<$Res> {
+  _$EmailChangedCopyWithImpl(
+      EmailChanged _value, $Res Function(EmailChanged) _then)
+      : super(_value, (v) => _then(v as EmailChanged));
+
+  @override
+  EmailChanged get _value => super._value as EmailChanged;
+
+  @override
+  $Res call({
+    Object? email = freezed,
+  }) {
+    return _then(EmailChanged(
+      email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EmailChanged implements EmailChanged {
+  const _$EmailChanged(this.email);
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'AuthEvent.emailChanged(email: $email)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EmailChanged &&
+            const DeepCollectionEquality().equals(other.email, email));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(email));
+
+  @JsonKey(ignore: true)
+  @override
+  $EmailChangedCopyWith<EmailChanged> get copyWith =>
+      _$EmailChangedCopyWithImpl<EmailChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() signInWithPhoneNumberAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+  }) {
+    return emailChanged(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? signInWithPhoneNumberAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+  }) {
+    return emailChanged?.call(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? signInWithPhoneNumberAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (emailChanged != null) {
+      return emailChanged(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RegisterWithPhoneNumberPressed value)
+        registerWithPhoneNumberPressed,
+    required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
+        signInWithPhoneNumberAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+  }) {
+    return emailChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterWithPhoneNumberPressed value)?
+        registerWithPhoneNumberPressed,
+    TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
+        signInWithPhoneNumberAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+  }) {
+    return emailChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterWithPhoneNumberPressed value)?
+        registerWithPhoneNumberPressed,
+    TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
+        signInWithPhoneNumberAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (emailChanged != null) {
+      return emailChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmailChanged implements AuthEvent {
+  const factory EmailChanged(String email) = _$EmailChanged;
+
+  String get email;
+  @JsonKey(ignore: true)
+  $EmailChangedCopyWith<EmailChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -354,6 +536,7 @@ class _$PasswordChanged implements PasswordChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() registerWithPhoneNumberPressed,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
@@ -366,6 +549,7 @@ class _$PasswordChanged implements PasswordChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -378,6 +562,7 @@ class _$PasswordChanged implements PasswordChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -394,6 +579,7 @@ class _$PasswordChanged implements PasswordChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(RegisterWithPhoneNumberPressed value)
         registerWithPhoneNumberPressed,
@@ -409,6 +595,7 @@ class _$PasswordChanged implements PasswordChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -423,6 +610,7 @@ class _$PasswordChanged implements PasswordChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -494,6 +682,7 @@ class _$RegisterWithPhoneNumberPressed
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() registerWithPhoneNumberPressed,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
@@ -506,6 +695,7 @@ class _$RegisterWithPhoneNumberPressed
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -518,6 +708,7 @@ class _$RegisterWithPhoneNumberPressed
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -534,6 +725,7 @@ class _$RegisterWithPhoneNumberPressed
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(RegisterWithPhoneNumberPressed value)
         registerWithPhoneNumberPressed,
@@ -549,6 +741,7 @@ class _$RegisterWithPhoneNumberPressed
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -563,6 +756,7 @@ class _$RegisterWithPhoneNumberPressed
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -631,6 +825,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() registerWithPhoneNumberPressed,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
@@ -643,6 +838,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -655,6 +851,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -671,6 +868,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(RegisterWithPhoneNumberPressed value)
         registerWithPhoneNumberPressed,
@@ -686,6 +884,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -700,6 +899,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -762,6 +962,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() registerWithPhoneNumberPressed,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
@@ -774,6 +975,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -786,6 +988,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? registerWithPhoneNumberPressed,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
@@ -802,6 +1005,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(RegisterWithPhoneNumberPressed value)
         registerWithPhoneNumberPressed,
@@ -817,6 +1021,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -831,6 +1036,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(RegisterWithPhoneNumberPressed value)?
         registerWithPhoneNumberPressed,
@@ -857,6 +1063,7 @@ class _$AuthStateTearOff {
   _AuthState call(
       {required PhoneNumber phoneNumber,
       required Password password,
+      required EmailAddress emailAddress,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -864,6 +1071,7 @@ class _$AuthStateTearOff {
     return _AuthState(
       phoneNumber: phoneNumber,
       password: password,
+      emailAddress: emailAddress,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
@@ -879,6 +1087,7 @@ const $AuthState = _$AuthStateTearOff();
 mixin _$AuthState {
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
+  EmailAddress get emailAddress => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
@@ -897,6 +1106,7 @@ abstract class $AuthStateCopyWith<$Res> {
   $Res call(
       {PhoneNumber phoneNumber,
       Password password,
+      EmailAddress emailAddress,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -915,6 +1125,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   $Res call({
     Object? phoneNumber = freezed,
     Object? password = freezed,
+    Object? emailAddress = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -929,6 +1140,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      emailAddress: emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -958,6 +1173,7 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   $Res call(
       {PhoneNumber phoneNumber,
       Password password,
+      EmailAddress emailAddress,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -977,6 +1193,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   $Res call({
     Object? phoneNumber = freezed,
     Object? password = freezed,
+    Object? emailAddress = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -991,6 +1208,10 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      emailAddress: emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -1017,6 +1238,7 @@ class _$_AuthState implements _AuthState {
   const _$_AuthState(
       {required this.phoneNumber,
       required this.password,
+      required this.emailAddress,
       required this.showErrorMessages,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption,
@@ -1026,6 +1248,8 @@ class _$_AuthState implements _AuthState {
   final PhoneNumber phoneNumber;
   @override
   final Password password;
+  @override
+  final EmailAddress emailAddress;
   @override
   final bool showErrorMessages;
   @override
@@ -1037,7 +1261,7 @@ class _$_AuthState implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(phoneNumber: $phoneNumber, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, verificationCode: $verificationCode)';
+    return 'AuthState(phoneNumber: $phoneNumber, password: $password, emailAddress: $emailAddress, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, verificationCode: $verificationCode)';
   }
 
   @override
@@ -1048,6 +1272,8 @@ class _$_AuthState implements _AuthState {
             const DeepCollectionEquality()
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.emailAddress, emailAddress) &&
             const DeepCollectionEquality()
                 .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality()
@@ -1063,6 +1289,7 @@ class _$_AuthState implements _AuthState {
       runtimeType,
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(emailAddress),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isSubmitting),
       const DeepCollectionEquality().hash(authFailureOrSuccessOption),
@@ -1078,6 +1305,7 @@ abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {required PhoneNumber phoneNumber,
       required Password password,
+      required EmailAddress emailAddress,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
@@ -1087,6 +1315,8 @@ abstract class _AuthState implements AuthState {
   PhoneNumber get phoneNumber;
   @override
   Password get password;
+  @override
+  EmailAddress get emailAddress;
   @override
   bool get showErrorMessages;
   @override
