@@ -211,7 +211,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(
+                            Navigator.pushReplacementNamed(
                               context,
                               RegistrationScreen.routeName,
                             );

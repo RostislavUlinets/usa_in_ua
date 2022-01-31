@@ -114,11 +114,8 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<Either<AuthFailure, Unit>> signInWithPhoneNumberAndPassword({
     required PhoneNumber phoneNumber,
     required Password password,
-  }) {
-    final phoneNumberStr = phoneNumber.getOrCrash();
-    final passwordStr = password.getOrCrash();
-
-    throw UnimplementedError();
+  }) async {
+    return left(const AuthFailure.serverError());
   }
 
   @override
