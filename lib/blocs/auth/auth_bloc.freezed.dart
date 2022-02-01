@@ -36,8 +36,12 @@ class _$AuthEventTearOff {
     );
   }
 
-  RegisterWithPhoneNumberPressed registerWithPhoneNumberPressed() {
-    return const RegisterWithPhoneNumberPressed();
+  VerifyPhoneNumber verifyPhoneNumber() {
+    return const VerifyPhoneNumber();
+  }
+
+  VerifyOTP verifyOTP() {
+    return const VerifyOTP();
   }
 
   SignInWithPhoneNumberAndPasswordPressed
@@ -60,7 +64,8 @@ mixin _$AuthEvent {
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
   }) =>
@@ -70,7 +75,8 @@ mixin _$AuthEvent {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
   }) =>
@@ -80,7 +86,8 @@ mixin _$AuthEvent {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
@@ -91,8 +98,8 @@ mixin _$AuthEvent {
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(RegisterWithPhoneNumberPressed value)
-        registerWithPhoneNumberPressed,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
     required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
@@ -104,8 +111,8 @@ mixin _$AuthEvent {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -116,8 +123,8 @@ mixin _$AuthEvent {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -210,7 +217,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
   }) {
@@ -223,7 +231,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
   }) {
@@ -236,7 +245,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
@@ -253,8 +263,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(RegisterWithPhoneNumberPressed value)
-        registerWithPhoneNumberPressed,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
     required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
@@ -269,8 +279,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -284,8 +294,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -374,7 +384,8 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
   }) {
@@ -387,7 +398,8 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
   }) {
@@ -400,7 +412,8 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
@@ -417,8 +430,8 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(RegisterWithPhoneNumberPressed value)
-        registerWithPhoneNumberPressed,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
     required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
@@ -433,8 +446,8 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -448,8 +461,8 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -538,7 +551,8 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
   }) {
@@ -551,7 +565,8 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
   }) {
@@ -564,7 +579,8 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
@@ -581,8 +597,8 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(RegisterWithPhoneNumberPressed value)
-        registerWithPhoneNumberPressed,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
     required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
@@ -597,8 +613,8 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -612,8 +628,8 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -636,43 +652,38 @@ abstract class PasswordChanged implements AuthEvent {
 }
 
 /// @nodoc
-abstract class $RegisterWithPhoneNumberPressedCopyWith<$Res> {
-  factory $RegisterWithPhoneNumberPressedCopyWith(
-          RegisterWithPhoneNumberPressed value,
-          $Res Function(RegisterWithPhoneNumberPressed) then) =
-      _$RegisterWithPhoneNumberPressedCopyWithImpl<$Res>;
+abstract class $VerifyPhoneNumberCopyWith<$Res> {
+  factory $VerifyPhoneNumberCopyWith(
+          VerifyPhoneNumber value, $Res Function(VerifyPhoneNumber) then) =
+      _$VerifyPhoneNumberCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RegisterWithPhoneNumberPressedCopyWithImpl<$Res>
+class _$VerifyPhoneNumberCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res>
-    implements $RegisterWithPhoneNumberPressedCopyWith<$Res> {
-  _$RegisterWithPhoneNumberPressedCopyWithImpl(
-      RegisterWithPhoneNumberPressed _value,
-      $Res Function(RegisterWithPhoneNumberPressed) _then)
-      : super(_value, (v) => _then(v as RegisterWithPhoneNumberPressed));
+    implements $VerifyPhoneNumberCopyWith<$Res> {
+  _$VerifyPhoneNumberCopyWithImpl(
+      VerifyPhoneNumber _value, $Res Function(VerifyPhoneNumber) _then)
+      : super(_value, (v) => _then(v as VerifyPhoneNumber));
 
   @override
-  RegisterWithPhoneNumberPressed get _value =>
-      super._value as RegisterWithPhoneNumberPressed;
+  VerifyPhoneNumber get _value => super._value as VerifyPhoneNumber;
 }
 
 /// @nodoc
 
-class _$RegisterWithPhoneNumberPressed
-    implements RegisterWithPhoneNumberPressed {
-  const _$RegisterWithPhoneNumberPressed();
+class _$VerifyPhoneNumber implements VerifyPhoneNumber {
+  const _$VerifyPhoneNumber();
 
   @override
   String toString() {
-    return 'AuthEvent.registerWithPhoneNumberPressed()';
+    return 'AuthEvent.verifyPhoneNumber()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is RegisterWithPhoneNumberPressed);
+        (other.runtimeType == runtimeType && other is VerifyPhoneNumber);
   }
 
   @override
@@ -684,11 +695,12 @@ class _$RegisterWithPhoneNumberPressed
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
   }) {
-    return registerWithPhoneNumberPressed();
+    return verifyPhoneNumber();
   }
 
   @override
@@ -697,11 +709,12 @@ class _$RegisterWithPhoneNumberPressed
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
   }) {
-    return registerWithPhoneNumberPressed?.call();
+    return verifyPhoneNumber?.call();
   }
 
   @override
@@ -710,13 +723,14 @@ class _$RegisterWithPhoneNumberPressed
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) {
-    if (registerWithPhoneNumberPressed != null) {
-      return registerWithPhoneNumberPressed();
+    if (verifyPhoneNumber != null) {
+      return verifyPhoneNumber();
     }
     return orElse();
   }
@@ -727,14 +741,14 @@ class _$RegisterWithPhoneNumberPressed
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(RegisterWithPhoneNumberPressed value)
-        registerWithPhoneNumberPressed,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
     required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
   }) {
-    return registerWithPhoneNumberPressed(this);
+    return verifyPhoneNumber(this);
   }
 
   @override
@@ -743,13 +757,13 @@ class _$RegisterWithPhoneNumberPressed
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
   }) {
-    return registerWithPhoneNumberPressed?.call(this);
+    return verifyPhoneNumber?.call(this);
   }
 
   @override
@@ -758,23 +772,158 @@ class _$RegisterWithPhoneNumberPressed
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
-    if (registerWithPhoneNumberPressed != null) {
-      return registerWithPhoneNumberPressed(this);
+    if (verifyPhoneNumber != null) {
+      return verifyPhoneNumber(this);
     }
     return orElse();
   }
 }
 
-abstract class RegisterWithPhoneNumberPressed implements AuthEvent {
-  const factory RegisterWithPhoneNumberPressed() =
-      _$RegisterWithPhoneNumberPressed;
+abstract class VerifyPhoneNumber implements AuthEvent {
+  const factory VerifyPhoneNumber() = _$VerifyPhoneNumber;
+}
+
+/// @nodoc
+abstract class $VerifyOTPCopyWith<$Res> {
+  factory $VerifyOTPCopyWith(VerifyOTP value, $Res Function(VerifyOTP) then) =
+      _$VerifyOTPCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$VerifyOTPCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $VerifyOTPCopyWith<$Res> {
+  _$VerifyOTPCopyWithImpl(VerifyOTP _value, $Res Function(VerifyOTP) _then)
+      : super(_value, (v) => _then(v as VerifyOTP));
+
+  @override
+  VerifyOTP get _value => super._value as VerifyOTP;
+}
+
+/// @nodoc
+
+class _$VerifyOTP implements VerifyOTP {
+  const _$VerifyOTP();
+
+  @override
+  String toString() {
+    return 'AuthEvent.verifyOTP()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is VerifyOTP);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
+    required TResult Function() signInWithPhoneNumberAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+  }) {
+    return verifyOTP();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
+    TResult Function()? signInWithPhoneNumberAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+  }) {
+    return verifyOTP?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
+    TResult Function()? signInWithPhoneNumberAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (verifyOTP != null) {
+      return verifyOTP();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
+    required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
+        signInWithPhoneNumberAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+  }) {
+    return verifyOTP(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
+    TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
+        signInWithPhoneNumberAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+  }) {
+    return verifyOTP?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
+    TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
+        signInWithPhoneNumberAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (verifyOTP != null) {
+      return verifyOTP(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VerifyOTP implements AuthEvent {
+  const factory VerifyOTP() = _$VerifyOTP;
 }
 
 /// @nodoc
@@ -827,7 +976,8 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
   }) {
@@ -840,7 +990,8 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
   }) {
@@ -853,7 +1004,8 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
@@ -870,8 +1022,8 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(RegisterWithPhoneNumberPressed value)
-        registerWithPhoneNumberPressed,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
     required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
@@ -886,8 +1038,8 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -901,8 +1053,8 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -964,7 +1116,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function() registerWithPhoneNumberPressed,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function() verifyOTP,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
   }) {
@@ -977,7 +1130,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
   }) {
@@ -990,7 +1144,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function()? registerWithPhoneNumberPressed,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function()? verifyOTP,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
@@ -1007,8 +1162,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(RegisterWithPhoneNumberPressed value)
-        registerWithPhoneNumberPressed,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
     required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
@@ -1023,8 +1178,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -1038,8 +1193,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(RegisterWithPhoneNumberPressed value)?
-        registerWithPhoneNumberPressed,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
@@ -1066,16 +1221,16 @@ class _$AuthStateTearOff {
       required EmailAddress emailAddress,
       required bool showErrorMessages,
       required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      String? verificationCode}) {
+      required String verificationId,
+      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _AuthState(
       phoneNumber: phoneNumber,
       password: password,
       emailAddress: emailAddress,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
+      verificationId: verificationId,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
-      verificationCode: verificationCode,
     );
   }
 }
@@ -1090,9 +1245,9 @@ mixin _$AuthState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  String get verificationId => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  String? get verificationCode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -1109,8 +1264,8 @@ abstract class $AuthStateCopyWith<$Res> {
       EmailAddress emailAddress,
       bool showErrorMessages,
       bool isSubmitting,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      String? verificationCode});
+      String verificationId,
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -1128,8 +1283,8 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? emailAddress = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
+    Object? verificationId = freezed,
     Object? authFailureOrSuccessOption = freezed,
-    Object? verificationCode = freezed,
   }) {
     return _then(_value.copyWith(
       phoneNumber: phoneNumber == freezed
@@ -1152,14 +1307,14 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      verificationId: verificationId == freezed
+          ? _value.verificationId
+          : verificationId // ignore: cast_nullable_to_non_nullable
+              as String,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
-      verificationCode: verificationCode == freezed
-          ? _value.verificationCode
-          : verificationCode // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1176,8 +1331,8 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       EmailAddress emailAddress,
       bool showErrorMessages,
       bool isSubmitting,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      String? verificationCode});
+      String verificationId,
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -1196,8 +1351,8 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? emailAddress = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
+    Object? verificationId = freezed,
     Object? authFailureOrSuccessOption = freezed,
-    Object? verificationCode = freezed,
   }) {
     return _then(_AuthState(
       phoneNumber: phoneNumber == freezed
@@ -1220,14 +1375,14 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      verificationId: verificationId == freezed
+          ? _value.verificationId
+          : verificationId // ignore: cast_nullable_to_non_nullable
+              as String,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
-      verificationCode: verificationCode == freezed
-          ? _value.verificationCode
-          : verificationCode // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1241,8 +1396,8 @@ class _$_AuthState implements _AuthState {
       required this.emailAddress,
       required this.showErrorMessages,
       required this.isSubmitting,
-      required this.authFailureOrSuccessOption,
-      this.verificationCode});
+      required this.verificationId,
+      required this.authFailureOrSuccessOption});
 
   @override
   final PhoneNumber phoneNumber;
@@ -1255,13 +1410,13 @@ class _$_AuthState implements _AuthState {
   @override
   final bool isSubmitting;
   @override
-  final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
+  final String verificationId;
   @override
-  final String? verificationCode;
+  final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AuthState(phoneNumber: $phoneNumber, password: $password, emailAddress: $emailAddress, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, verificationCode: $verificationCode)';
+    return 'AuthState(phoneNumber: $phoneNumber, password: $password, emailAddress: $emailAddress, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, verificationId: $verificationId, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1278,10 +1433,10 @@ class _$_AuthState implements _AuthState {
                 .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(
-                other.authFailureOrSuccessOption, authFailureOrSuccessOption) &&
             const DeepCollectionEquality()
-                .equals(other.verificationCode, verificationCode));
+                .equals(other.verificationId, verificationId) &&
+            const DeepCollectionEquality().equals(
+                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
   }
 
   @override
@@ -1292,8 +1447,8 @@ class _$_AuthState implements _AuthState {
       const DeepCollectionEquality().hash(emailAddress),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption),
-      const DeepCollectionEquality().hash(verificationCode));
+      const DeepCollectionEquality().hash(verificationId),
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override
@@ -1308,8 +1463,9 @@ abstract class _AuthState implements AuthState {
       required EmailAddress emailAddress,
       required bool showErrorMessages,
       required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      String? verificationCode}) = _$_AuthState;
+      required String verificationId,
+      required Option<Either<AuthFailure, Unit>>
+          authFailureOrSuccessOption}) = _$_AuthState;
 
   @override
   PhoneNumber get phoneNumber;
@@ -1322,9 +1478,9 @@ abstract class _AuthState implements AuthState {
   @override
   bool get isSubmitting;
   @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  String get verificationId;
   @override
-  String? get verificationCode;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$AuthStateCopyWith<_AuthState> get copyWith =>

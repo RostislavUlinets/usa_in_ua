@@ -45,9 +45,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
     );
-    on<RegisterWithPhoneNumberPressed>(
+    on<VerifyPhoneNumber>(
       (event, emit) async {
         Either<AuthFailure, Unit>? failureOrSuccess;
+        Either<AuthFailure, String>? getVarificationResult;
 
         if (state.phoneNumber.isValid()) {
           emit(
@@ -57,14 +58,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             ),
           );
 
-          failureOrSuccess = await _authFacade.registerWithPhoneNumber(
+          getVarificationResult = await _authFacade.verifyPhoneNumber(
             phoneNumber: state.phoneNumber,
+          );
+
+          getVarificationResult.fold(
+            (l) => failureOrSuccess = left(l),
+            (r) => null,
           );
 
           emit(
             state.copyWith(
               isSubmitting: false,
-              authFailureOrSuccessOption: some(failureOrSuccess),
+              authFailureOrSuccessOption: optionOf(failureOrSuccess),
             ),
           );
         }

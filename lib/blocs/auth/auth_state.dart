@@ -8,14 +8,15 @@ class AuthState with _$AuthState {
     required EmailAddress emailAddress,
     required bool showErrorMessages,
     required bool isSubmitting,
+    required String verificationId,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-    String? verificationCode,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(
         phoneNumber: PhoneNumber(''),
         password: Password(''),
         emailAddress: EmailAddress(''),
+        verificationId: '',
         showErrorMessages: false,
         isSubmitting: false,
         authFailureOrSuccessOption: none(),

@@ -1,5 +1,7 @@
 import 'package:flutter_svg/flutter_svg.dart';
 
+
+//change to path.
 class AppIcons {
   AppIcons._();
 

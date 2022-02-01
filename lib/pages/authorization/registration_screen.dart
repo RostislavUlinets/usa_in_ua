@@ -72,7 +72,7 @@ class RegistrationScreen extends StatelessWidget {
                             child: TextField(
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: 'Ваше имя*',  
+                                hintText: 'Ваше имя*',
                                 hintStyle: TextStyle(
                                   color: AppColors.notActive,
                                   fontSize: 14,
@@ -199,19 +199,18 @@ class RegistrationScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // Navigator.pushNamed(context, OtpScreen.routeName);
-
                       context.read<AuthBloc>().add(
                             const AuthEvent
                                 .signInWithPhoneNumberAndPasswordPressed(),
                           );
+                      Navigator.pushNamed(context, OtpScreen.routeName);
                     },
                     child: Container(
                       width: double.infinity,
                       height: 50,
                       alignment: Alignment.center,
                       child: const Text(
-                        'Войти',
+                        'Зарегистрироваться',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
