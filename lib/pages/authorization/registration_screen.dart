@@ -201,7 +201,7 @@ class RegistrationScreen extends StatelessWidget {
                     onTap: () {
                       context.read<AuthBloc>().add(
                             const AuthEvent
-                                .signInWithPhoneNumberAndPasswordPressed(),
+                                .verifyPhoneNumber(),
                           );
                       Navigator.pushNamed(context, OtpScreen.routeName);
                     },

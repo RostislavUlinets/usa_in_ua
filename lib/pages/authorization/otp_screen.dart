@@ -7,6 +7,8 @@ import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
+import 'widgets/otp_widget.dart';
+
 class OtpScreen extends StatelessWidget {
   static const String routeName = '/OtpScreen';
 
@@ -39,7 +41,6 @@ class OtpScreen extends StatelessWidget {
           resizeToAvoidBottomInset: false,
           body: Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: 70.0,
               horizontal: 30.0,
             ),
             child: Form(
@@ -48,53 +49,65 @@ class OtpScreen extends StatelessWidget {
                   : AutovalidateMode.disabled,
               child: ListView(
                 children: [
-                  const Text(
-                    'Код\nподтверждения',
-                    style: TextStyle(
-                      color: AppColors.text,
-                      fontSize: 40,
-                      letterSpacing: 0.5,
-                      fontFamily: 'lato',
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 50,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      'Войти',
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 70.0),
+                    child: Text(
+                      'Код\nподтверждения',
                       style: TextStyle(
+                        color: AppColors.text,
+                        fontSize: 40,
+                        letterSpacing: 0.5,
                         fontFamily: 'lato',
-                        fontSize: 18,
                         fontWeight: FontWeight.w800,
-                        letterSpacing: 1,
-                        color: AppColors.buttonText,
                       ),
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: AppColors.green,
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.green.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset:
-                              const Offset(0, 8), // changes position of shadow
-                        ),
-                      ],
+                  ),
+                  const Text(
+                    'Смс с кодом отправленно на номер:\n+38 063 058 8512',
+                    style: TextStyle(
+                      fontFamily: 'lato',
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.blue,
+                      fontSize: 16,
                     ),
                   ),
-                  Text(
-                    'Смс с кодом отправленно на номер:\n+38 063 058 8512',
+                  Otp(
+                    key: UniqueKey(),
                   ),
-                  TextFormField(
-                    // inputBoxController: teOtpDigitOne,
-                    // focusNod: focusNodeDigitOne,
-                    keyboardType: TextInputType.number,
-                    cursorColor: Color(0xFFA6A6A6),
-                    maxLength: 1,
+                  GestureDetector(
+                    onTap: () {
+                      context.read<AuthBloc>().add(
+                            const AuthEvent.verifyPhoneNumber(),
+                          );
+                      Navigator.pushNamed(context, OtpScreen.routeName);
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Зарегистрироваться',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1,
+                          color: AppColors.buttonText,
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: AppColors.green,
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.green.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(
+                                0, 8), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -153,6 +166,21 @@ class OtpScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ),
+                  Row(
+                    children: [
+                      AppIcons.password,
+                      const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          'Я уже зарегистрирован',
+                          style: TextStyle(
+                            color: AppColors.text,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

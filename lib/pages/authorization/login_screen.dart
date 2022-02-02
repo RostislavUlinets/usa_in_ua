@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
+import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
 import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
@@ -270,7 +271,9 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, OtpScreen.routeName);
+                      },
                       child: Container(
                         child: Padding(
                           padding: const EdgeInsets.all(15.0),

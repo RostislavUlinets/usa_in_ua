@@ -72,6 +72,7 @@ class FirebaseAuthFacade implements IAuthFacade {
           verificationCode = verificationId;
         },
       );
+      log(verificationCode);
       return right(verificationCode);
     } on PlatformException catch (e) {
       if (e.code == 'phone-number-already-exists') {
