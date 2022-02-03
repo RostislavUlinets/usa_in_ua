@@ -71,101 +71,55 @@ class OtpScreen extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  Otp(
-                    key: UniqueKey(),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context.read<AuthBloc>().add(
-                            const AuthEvent.verifyPhoneNumber(),
-                          );
-                      Navigator.pushNamed(context, OtpScreen.routeName);
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: 50,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Зарегистрироваться',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 1,
-                          color: AppColors.buttonText,
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: AppColors.green,
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.green.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(
-                                0, 8), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  Otp(),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: GestureDetector(
                       onTap: () {
                         context.read<AuthBloc>().add(
-                              const AuthEvent.signInWithGooglePressed(),
+                              const AuthEvent.verifyPhoneNumber(),
                             );
+                        Navigator.pushNamed(context, OtpScreen.routeName);
                       },
                       child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Войти как пользователь',
-                                style: TextStyle(
-                                  color: AppColors.text,
-                                ),
-                              ),
-                              AppIcons.googleLogo,
-                            ],
+                        width: double.infinity,
+                        height: 50,
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'Зарегистрироваться',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: 1,
+                            color: AppColors.buttonText,
                           ),
                         ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: AppColors.button,
+                          color: AppColors.green,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.green.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(
+                                  0, 8), // changes position of shadow
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Войти как пользователь',
-                                style: TextStyle(
-                                  color: AppColors.text,
-                                ),
-                              ),
-                              AppIcons.facebookLogo,
-                            ],
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.button,
+                  Row(
+                    children: const [
+                      Text(
+                        'Отправить код повторно через: ',
+                        style: TextStyle(
+                          color: AppColors.text,
+                          fontFamily: 'lato',
                         ),
                       ),
-                    ),
+                    ],
                   ),
                   Row(
                     children: [
