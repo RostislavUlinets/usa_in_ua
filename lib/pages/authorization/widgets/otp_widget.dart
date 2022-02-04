@@ -13,10 +13,6 @@ class _OtpState extends State<Otp> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 30),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
       child: Column(
         children: [
           Row(
@@ -38,7 +34,7 @@ class _OtpState extends State<Otp> {
 
   Widget _textFieldOTP({required bool first, last}) {
     return SizedBox(
-      height: 85,
+      height: 70,
       child: AspectRatio(
         aspectRatio: 1.0,
         child: TextField(
@@ -55,7 +51,7 @@ class _OtpState extends State<Otp> {
           readOnly: false,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            fontSize: 48,
+            fontSize: 36,
             fontFamily: 'lato',
             fontWeight: FontWeight.w800,
             color: AppColors.text,
@@ -69,7 +65,7 @@ class _OtpState extends State<Otp> {
               borderRadius: BorderRadius.circular(4),
             ),
             focusedBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(width: 8, color: AppColors.text),
+              borderSide: const BorderSide(width: 6, color: AppColors.text),
               borderRadius: BorderRadius.circular(4),
             ),
           ),

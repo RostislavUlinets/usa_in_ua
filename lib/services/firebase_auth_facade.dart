@@ -54,32 +54,41 @@ class FirebaseAuthFacade implements IAuthFacade {
     required PhoneNumber phoneNumber,
   }) async {
     final phoneNumberStr = phoneNumber.getOrCrash();
-    late final String verificationCode;
+    log(phoneNumberStr);
     try {
+      late final String verificationCode;
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumberStr,
+        timeout: const Duration(seconds: 60),
         verificationCompleted: (PhoneAuthCredential credential) async {
+          log('123');
           UserCredential _userCredential =
               await _firebaseAuth.signInWithCredential(credential);
         },
         verificationFailed: (FirebaseAuthException e) {
           log(e.toString());
         },
-        codeSent: (String verificationId, int? resendToken) async {
+        codeSent: (String verificationId, int? resendToken) {
+          log('sad boy');
           verificationCode = verificationId;
         },
         codeAutoRetrievalTimeout: (String verificationId) {
-          verificationCode = verificationId;
+          log('Code timeout');
         },
       );
-      log(verificationCode);
+      log('Verification code: $verificationCode');
       return right(verificationCode);
     } on PlatformException catch (e) {
       if (e.code == 'phone-number-already-exists') {
+        log('error 1');
         return left(const AuthFailure.phoneNumberAlreadyInUse());
       } else {
+        log('error 2');
         return left(const AuthFailure.serverError());
       }
+    } catch (e) {
+      log('error 3');
+      return left(const AuthFailure.serverError());
     }
   }
 
