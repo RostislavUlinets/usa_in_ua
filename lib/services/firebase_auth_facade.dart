@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -50,13 +51,13 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, String>> verifyPhoneNumber({
+  Future<Either<AuthFailure, String>?> verifyPhoneNumber({
     required PhoneNumber phoneNumber,
   }) async {
     final phoneNumberStr = phoneNumber.getOrCrash();
-    log(phoneNumberStr);
+    String verificationCode = '';
+    final completer = Completer<String>();
     try {
-      late final String verificationCode;
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumberStr,
         timeout: const Duration(seconds: 60),
@@ -64,20 +65,24 @@ class FirebaseAuthFacade implements IAuthFacade {
           log('123');
           UserCredential _userCredential =
               await _firebaseAuth.signInWithCredential(credential);
+          completer.complete("signedUp");
         },
         verificationFailed: (FirebaseAuthException e) {
           log(e.toString());
+          completer.complete("error");
         },
         codeSent: (String verificationId, int? resendToken) {
           log('sad boy');
-          verificationCode = verificationId;
+          completer.complete(verificationId);
         },
         codeAutoRetrievalTimeout: (String verificationId) {
           log('Code timeout');
+          completer.complete("timeout");
         },
       );
-      log('Verification code: $verificationCode');
-      return right(verificationCode);
+      completer.future.then((value) {
+        return right(value);
+      });
     } on PlatformException catch (e) {
       if (e.code == 'phone-number-already-exists') {
         log('error 1');
