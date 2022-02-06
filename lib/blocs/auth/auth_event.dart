@@ -7,7 +7,7 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.emailChanged(String email) = EmailChanged;
   const factory AuthEvent.passwordChanged(String password) = PasswordChanged;
   const factory AuthEvent.verifyPhoneNumber() = VerifyPhoneNumber;
-  const factory AuthEvent.verifyOTP() = VerifyOTP;
+  const factory AuthEvent.verifyOTP(List<String> otpCode) = VerifyOTP;
   const factory AuthEvent.signInWithPhoneNumberAndPasswordPressed() =
       SignInWithPhoneNumberAndPasswordPressed;
   const factory AuthEvent.signInWithGooglePressed() = SignInWithGooglePressed;

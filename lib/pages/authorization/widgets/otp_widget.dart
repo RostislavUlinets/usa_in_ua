@@ -1,7 +1,12 @@
 import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
+
+List<String> storage = []..length = 6;
 
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
@@ -13,6 +18,7 @@ class Otp extends StatefulWidget {
 class _OtpState extends State<Otp> {
   @override
   Widget build(BuildContext context) {
+    final counterBloc = BlocProvider.of<AuthBloc>(context);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Column(
@@ -20,41 +26,101 @@ class _OtpState extends State<Otp> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _textFieldOTP(first: true, last: false),
-              _textFieldOTP(first: false, last: false),
-              _textFieldOTP(first: false, last: false),
-              _textFieldOTP(first: false, last: false),
-              _textFieldOTP(first: false, last: false),
-              _textFieldOTP(first: false, last: true),
+              _textFieldOTP(
+                first: true,
+                last: false,
+                position: 0,
+              ),
+              _textFieldOTP(
+                first: false,
+                last: false,
+                position: 1,
+              ),
+              _textFieldOTP(
+                first: false,
+                last: false,
+                position: 2,
+              ),
+              _textFieldOTP(
+                first: false,
+                last: false,
+                position: 3,
+              ),
+              _textFieldOTP(
+                first: false,
+                last: false,
+                position: 4,
+              ),
+              _textFieldOTP(
+                first: false,
+                last: true,
+                position: 5,
+              ),
             ],
           ),
           const SizedBox(
             height: 12,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: GestureDetector(
+              onTap: () {
+                context.read<AuthBloc>().add(
+                      AuthEvent.verifyOTP(storage),
+                    );
+              },
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                alignment: Alignment.center,
+                child: const Text(
+                  'Зарегистрироваться',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1,
+                    color: AppColors.buttonText,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: AppColors.green,
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.green.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 8), // changes position of shadow
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _textFieldOTP({required bool first, last}) {
-
-    TextEditingController _controller = TextEditingController();
-
+  Widget _textFieldOTP({
+    required bool first,
+    last,
+    required int position,
+  }) {
     return SizedBox(
       height: 50,
       child: AspectRatio(
         aspectRatio: 1.0,
         child: TextField(
-          controller: _controller,
           autofocus: true,
           onChanged: (value) {
-            log(_controller.text);
             if (value.length == 1 && last == false) {
               FocusScope.of(context).nextFocus();
             }
             if (value.isEmpty && first == false) {
               FocusScope.of(context).previousFocus();
             }
+            storage[position] = value;
           },
           showCursor: false,
           readOnly: false,

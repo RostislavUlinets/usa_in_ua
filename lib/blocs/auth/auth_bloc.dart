@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
@@ -86,6 +87,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
     );
+    on<VerifyOTP>((event, emit) async {
+      Either<AuthFailure, UserCredential> result;
+
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+      result = await _authFacade.confirmOTP(
+        verificationCode: state.verificationId,
+        otpCode: event.otpCode,
+      );
+      emit(
+        state.copyWith(
+            isSubmitting: false,
+            authFailureOrSuccessOption:
+                result.fold((l) => some(left(l)), (r) => none())),
+      );
+    });
     on<SignInWithPhoneNumberAndPasswordPressed>(
       (event, emit) async {
         Either<AuthFailure, Unit>? failureOrSuccess;

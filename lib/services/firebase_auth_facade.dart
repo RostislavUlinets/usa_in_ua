@@ -11,6 +11,7 @@ import 'package:usa_in_ua/models/auth/core/errors.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
+import 'package:usa_in_ua/pages/authorization/widgets/otp_widget.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
@@ -95,21 +96,26 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> confirmOTP({
+  Future<Either<AuthFailure, UserCredential>> confirmOTP({
     required String verificationCode,
-    required String otpCode,
+    required List<String> otpCode,
   }) async {
+    String code = '';
+    for (int i = 0; i < 6; i++) {
+      code += storage[i].toString();
+    }
     try {
       await FirebaseAuth.instance
           .signInWithCredential(
         PhoneAuthProvider.credential(
           verificationId: verificationCode,
-          smsCode: otpCode,
+          smsCode: code,
         ),
       )
           .then(
         (value) {
           if (value.user != null) {
+            log('Succes');
             return right(unit);
           }
         },

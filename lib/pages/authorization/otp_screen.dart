@@ -74,41 +74,6 @@ class OtpScreen extends StatelessWidget {
                     ),
                   ),
                   const Otp(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        log(state.verificationId);
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 50,
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'Зарегистрироваться',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: 1,
-                            color: AppColors.buttonText,
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.green,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.green.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: const Offset(
-                                  0, 8), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                   const ResendOTP(),
                   Row(
                     children: [
