@@ -51,12 +51,12 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, String>?> verifyPhoneNumber({
+  Future<Either<AuthFailure, String>> verifyPhoneNumber({
     required PhoneNumber phoneNumber,
   }) async {
     final phoneNumberStr = phoneNumber.getOrCrash();
     String verificationCode = '';
-    final completer = Completer<String>();
+    final completer = Completer<Either<AuthFailure, String>>();
     try {
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumberStr,
@@ -65,24 +65,21 @@ class FirebaseAuthFacade implements IAuthFacade {
           log('123');
           UserCredential _userCredential =
               await _firebaseAuth.signInWithCredential(credential);
-          completer.complete("signedUp");
         },
         verificationFailed: (FirebaseAuthException e) {
           log(e.toString());
-          completer.complete("error");
+          completer.complete(left(const AuthFailure.serverError()));
         },
         codeSent: (String verificationId, int? resendToken) {
           log('sad boy');
-          completer.complete(verificationId);
+          completer.complete(right(verificationId));
         },
         codeAutoRetrievalTimeout: (String verificationId) {
           log('Code timeout');
-          completer.complete("timeout");
+          completer.complete(left(const AuthFailure.serverError()));
         },
       );
-      completer.future.then((value) {
-        return right(value);
-      });
+      return completer.future;
     } on PlatformException catch (e) {
       if (e.code == 'phone-number-already-exists') {
         log('error 1');

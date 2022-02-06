@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
@@ -65,7 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             phoneNumber: state.phoneNumber,
           );
 
-          getVarificationResult!.fold(
+          getVarificationResult.fold(
             (l) => failureOrSuccess = left(l),
             (r) => log(r),
           );

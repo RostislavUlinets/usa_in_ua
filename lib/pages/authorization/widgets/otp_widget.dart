@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 
@@ -21,11 +23,13 @@ class _OtpState extends State<Otp> {
               _textFieldOTP(first: true, last: false),
               _textFieldOTP(first: false, last: false),
               _textFieldOTP(first: false, last: false),
+              _textFieldOTP(first: false, last: false),
+              _textFieldOTP(first: false, last: false),
               _textFieldOTP(first: false, last: true),
             ],
           ),
           const SizedBox(
-            height: 22,
+            height: 12,
           ),
         ],
       ),
@@ -33,13 +37,18 @@ class _OtpState extends State<Otp> {
   }
 
   Widget _textFieldOTP({required bool first, last}) {
+
+    TextEditingController _controller = TextEditingController();
+
     return SizedBox(
-      height: 70,
+      height: 50,
       child: AspectRatio(
         aspectRatio: 1.0,
         child: TextField(
+          controller: _controller,
           autofocus: true,
           onChanged: (value) {
+            log(_controller.text);
             if (value.length == 1 && last == false) {
               FocusScope.of(context).nextFocus();
             }

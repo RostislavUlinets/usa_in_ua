@@ -1,10 +1,10 @@
+import 'dart:developer';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
-import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/pages/authorization/widgets/resend_otp.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
@@ -73,15 +73,12 @@ class OtpScreen extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  Otp(),
+                  const Otp(),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: GestureDetector(
                       onTap: () {
-                        context.read<AuthBloc>().add(
-                              const AuthEvent.verifyPhoneNumber(),
-                            );
-                        Navigator.pushNamed(context, OtpScreen.routeName);
+                        log(state.verificationId);
                       },
                       child: Container(
                         width: double.infinity,
