@@ -67,7 +67,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
           getVarificationResult.fold(
             (l) => failureOrSuccess = left(l),
-            (r) => log(r),
+            (r) => emit(
+              state.copyWith(
+                verificationId: r,
+              ),
+            ),
           );
 
           emit(
@@ -88,7 +92,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       },
     );
     on<VerifyOTP>((event, emit) async {
-      Either<AuthFailure, UserCredential> result;
+      Either<AuthFailure, Unit> result;
 
       emit(
         state.copyWith(
@@ -102,9 +106,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       );
       emit(
         state.copyWith(
-            isSubmitting: false,
-            authFailureOrSuccessOption:
-                result.fold((l) => some(left(l)), (r) => none())),
+          isSubmitting: false,
+          authFailureOrSuccessOption: some(result),
+        ),
       );
     });
     on<SignInWithPhoneNumberAndPasswordPressed>(

@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 
-List<String> storage = []..length = 6;
 
+List<String> storage = ['0', '0', '0', '0', '0', '0'];
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
 
@@ -120,6 +120,7 @@ class _OtpState extends State<Otp> {
             if (value.isEmpty && first == false) {
               FocusScope.of(context).previousFocus();
             }
+            log('Curent value: $value');
             storage[position] = value;
           },
           showCursor: false,

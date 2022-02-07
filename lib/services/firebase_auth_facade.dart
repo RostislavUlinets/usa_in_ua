@@ -96,7 +96,7 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, UserCredential>> confirmOTP({
+  Future<Either<AuthFailure, Unit>> confirmOTP({
     required String verificationCode,
     required List<String> otpCode,
   }) async {
@@ -105,22 +105,19 @@ class FirebaseAuthFacade implements IAuthFacade {
       code += storage[i].toString();
     }
     try {
-      await FirebaseAuth.instance
-          .signInWithCredential(
-        PhoneAuthProvider.credential(
-          verificationId: verificationCode,
-          smsCode: code,
-        ),
-      )
-          .then(
-        (value) {
-          if (value.user != null) {
-            log('Succes');
-            return right(unit);
-          }
-        },
+      final credential = PhoneAuthProvider.credential(
+        verificationId: verificationCode,
+        smsCode: code,
       );
-      return left(const AuthFailure.serverError());
+      log('VerificatonCode: $verificationCode \n SmsCode: $code');
+      final UserCredential authResult =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      if (authResult.user != null) {
+        log('Succes');
+        return right(unit);
+      } else {
+        return left(const AuthFailure.serverError());
+      }
     } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
     } on PlatformException catch (_) {

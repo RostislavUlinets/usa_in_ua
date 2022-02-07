@@ -202,10 +202,10 @@ class RegistrationScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // context.read<AuthBloc>().add(
-                      //       const AuthEvent
-                      //           .verifyPhoneNumber(),
-                      //     );
+                      context.read<AuthBloc>().add(
+                            const AuthEvent
+                                .verifyPhoneNumber(),
+                          );
                       Navigator.pushNamed(context, OtpScreen.routeName);
                     },
                     child: Container(
