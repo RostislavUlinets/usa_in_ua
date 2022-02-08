@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
 import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
 import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
+import 'package:usa_in_ua/pages/authorization/restore_password.dart';
 import 'package:usa_in_ua/pages/splash/splash_screen.dart';
 
 class RouteGenerator {
@@ -22,6 +23,10 @@ class RouteGenerator {
       case OtpScreen.routeName:
         return MaterialPageRoute(
           builder: (context) => const OtpScreen(),
+        );
+      case RestorePassword.routeName:
+        return MaterialPageRoute(
+          builder: (context) => const RestorePassword(),
         );
       default:
         return _errorRoute();

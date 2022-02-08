@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
 import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
+import 'package:usa_in_ua/pages/authorization/restore_password.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
@@ -17,7 +18,6 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        
         state.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
@@ -194,7 +194,10 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, RestorePassword.routeName);
+                          },
                           child: Row(
                             children: [
                               AppIcons.locker,

@@ -3,6 +3,8 @@ import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
 class RestorePassword extends StatefulWidget {
+  static const String routeName = '/restorePassword';
+
   const RestorePassword({Key? key}) : super(key: key);
 
   @override
@@ -22,13 +24,25 @@ class _RestorePasswordState extends State<RestorePassword> {
         child: ListView(
           children: [
             const Text(
-              'Регистрация',
+              'Вход',
               style: TextStyle(
                 color: AppColors.text,
                 fontSize: 40,
                 letterSpacing: 0.5,
                 fontFamily: 'lato',
                 fontWeight: FontWeight.w800,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'Введите эл. почту или телефон',
+              style: TextStyle(
+                fontFamily: 'lato',
+                fontWeight: FontWeight.w800,
+                color: AppColors.blue,
+                fontSize: 16,
               ),
             ),
             Padding(
@@ -61,7 +75,7 @@ class _RestorePasswordState extends State<RestorePassword> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 40,
                   ),
                   GestureDetector(
                     onTap: () {},
