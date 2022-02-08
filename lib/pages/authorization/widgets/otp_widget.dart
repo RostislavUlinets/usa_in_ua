@@ -6,8 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 
+const int otpSize = 6;
+List<String> storage = List<String>.filled(otpSize, '');
 
-List<String> storage = ['0', '0', '0', '0', '0', '0'];
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
 
@@ -18,7 +19,6 @@ class Otp extends StatefulWidget {
 class _OtpState extends State<Otp> {
   @override
   Widget build(BuildContext context) {
-    final counterBloc = BlocProvider.of<AuthBloc>(context);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Column(

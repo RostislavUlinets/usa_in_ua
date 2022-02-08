@@ -41,3 +41,16 @@ class EmailAddress extends ValueObject<String> {
 
   const EmailAddress._(this.value);
 }
+
+class UserName extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UserName(String input) {
+    return UserName._(
+      validateUserName(input),
+    );
+  }
+
+  const UserName._(this.value);
+}

@@ -14,4 +14,7 @@ class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidEmail({
     required String failedValue,
   }) = InvalidEmail<T>;
+    const factory ValueFailure.invalidUserName({
+    required String failedValue,
+  }) = InvalidUserName<T>;
 }

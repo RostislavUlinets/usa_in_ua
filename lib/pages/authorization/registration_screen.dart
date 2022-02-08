@@ -69,11 +69,11 @@ class RegistrationScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 15.0, vertical: 5.0),
-                            child: TextField(
-                              decoration: InputDecoration(
+                            child: TextFormField(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Ваше имя*',
                                 hintStyle: TextStyle(
@@ -83,6 +83,23 @@ class RegistrationScreen extends StatelessWidget {
                                   letterSpacing: 1,
                                 ),
                               ),
+                              onChanged: (value) =>
+                                  context.read<AuthBloc>().add(
+                                        AuthEvent.userNameChanged(value),
+                                      ),
+                              validator: (_) => context
+                                  .read<AuthBloc>()
+                                  .state
+                                  .userName
+                                  .value
+                                  .fold(
+                                    (f) => f.maybeMap(
+                                      invalidUserName: (_) =>
+                                          'Incorrect Name',
+                                      orElse: () => null,
+                                    ),
+                                    (_) => null,
+                                  ),
                             ),
                           ),
                           decoration: BoxDecoration(
@@ -203,10 +220,9 @@ class RegistrationScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       context.read<AuthBloc>().add(
-                            const AuthEvent
-                                .verifyPhoneNumber(),
+                            const AuthEvent.verifyPhoneNumber(),
                           );
-                      Navigator.pushNamed(context, OtpScreen.routeName);
+                      // Navigator.pushNamed(context, OtpScreen.routeName);
                     },
                     child: Container(
                       width: double.infinity,

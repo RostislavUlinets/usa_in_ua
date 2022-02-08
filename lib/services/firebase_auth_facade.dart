@@ -118,7 +118,10 @@ class FirebaseAuthFacade implements IAuthFacade {
       } else {
         return left(const AuthFailure.serverError());
       }
-    } on FirebaseAuthException catch (_) {
+    } on FirebaseAuthException catch (e) {
+      // if (e.code == 'user-disabled') {
+      //   log('HELLO!!! User disabled by admin, go away');
+      // }
       return left(const AuthFailure.serverError());
     } on PlatformException catch (_) {
       return left(const AuthFailure.cancelledByUser());
