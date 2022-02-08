@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
+import 'package:usa_in_ua/pages/authorization/registration_complete.dart';
 import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/pages/authorization/restore_password.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
@@ -220,6 +221,10 @@ class LoginScreen extends StatelessWidget {
                               context,
                               RegistrationScreen.routeName,
                             );
+                            // Navigator.pushNamed(
+                            //   context,
+                            //   RegistrationComplete.routeName,
+                            // );
                           },
                           child: Row(
                             children: [

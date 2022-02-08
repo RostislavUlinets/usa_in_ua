@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
 import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
+import 'package:usa_in_ua/pages/authorization/registration_complete.dart';
 import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
 import 'package:usa_in_ua/pages/authorization/restore_password.dart';
 import 'package:usa_in_ua/pages/splash/splash_screen.dart';
@@ -27,6 +28,10 @@ class RouteGenerator {
       case RestorePassword.routeName:
         return MaterialPageRoute(
           builder: (context) => const RestorePassword(),
+        );
+      case RegistrationComplete.routeName:
+        return MaterialPageRoute(
+          builder: (context) => const RegistrationComplete(),
         );
       default:
         return _errorRoute();
