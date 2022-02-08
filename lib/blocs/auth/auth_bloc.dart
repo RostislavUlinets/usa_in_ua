@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
+import 'package:usa_in_ua/services/send_email.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -63,7 +64,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         Either<AuthFailure, Unit>? failureOrSuccess;
         Either<AuthFailure, String>? getVarificationResult;
 
-        if (state.phoneNumber.isValid() && state.emailAddress.isValid()) {
+        if (state.phoneNumber.isValid() &&
+            state.emailAddress.isValid() &&
+            state.userName.isValid()) {
           emit(
             state.copyWith(
               isSubmitting: true,
@@ -122,6 +125,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           authFailureOrSuccessOption: some(authResult),
         ),
       );
+
+      authResult.fold(
+        (l) => null,
+        (r) => add(
+          const LinkEmailWithPhone(),
+        ),
+      );
     });
     on<SignInWithPhoneNumberAndPasswordPressed>(
       (event, emit) async {
@@ -157,6 +167,38 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
     );
+    on<LinkEmailWithPhone>((event, emit) async {
+      final emailService = EmailSevice();
+
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+      final String generatedPassword = emailService.generatePassword();
+
+      final failureOrSuccess = await _authFacade.generateEmailAccount(
+        emailAddress: state.emailAddress,
+        password: generatedPassword,
+      );
+
+      failureOrSuccess.fold(
+        (l) => null,
+        (r) => emailService.sendEmail(
+          userName: state.userName,
+          emailAddress: state.emailAddress,
+          password: generatedPassword,
+        ),
+      );
+
+      emit(
+        state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: some(failureOrSuccess),
+        ),
+      );
+    });
     on<SignInWithGooglePressed>(
       (event, emit) async {
         emit(

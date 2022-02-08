@@ -8,8 +8,10 @@ class EmailSevice {
   Future sendEmail({
     required UserName userName,
     required EmailAddress emailAddress,
+    required String password,
   }) async {
-    final password = _generatePassword();
+    String userNameStr = userName.getOrCrash();
+    String emailAddressStr = emailAddress.getOrCrash();
     final serviceId = 'service_nx4azh9';
     final templateId = 'template_eriji3u';
     final userId = 'user_YOJhnRRf7aMshOcYlAkwj';
@@ -25,15 +27,15 @@ class EmailSevice {
         'template_id': templateId,
         'user_id': userId,
         'template_params': {
-          'user_name': userName,
-          'user_email': emailAddress,
+          'user_name': userNameStr,
+          'user_email': emailAddressStr,
           'message': 'Your new account password: $password',
         }
       }),
     );
   }
 
-  String _generatePassword({
+  String generatePassword({
     bool letter = true,
     bool isNumber = true,
     bool isSpecial = true,

@@ -222,7 +222,7 @@ class RegistrationScreen extends StatelessWidget {
                       context.read<AuthBloc>().add(
                             const AuthEvent.verifyPhoneNumber(),
                           );
-                      // Navigator.pushNamed(context, OtpScreen.routeName);
+                      Navigator.pushNamed(context, OtpScreen.routeName);
                     },
                     child: Container(
                       width: double.infinity,

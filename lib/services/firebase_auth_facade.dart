@@ -24,34 +24,6 @@ class FirebaseAuthFacade implements IAuthFacade {
   );
 
   @override
-  Future<Either<AuthFailure, Unit>> registerWithPhoneNumber({
-    required PhoneNumber phoneNumber,
-  }) async {
-    final phoneNumberStr = phoneNumber.getOrCrash();
-    try {
-      await _firebaseAuth.verifyPhoneNumber(
-        phoneNumber: phoneNumberStr,
-        verificationCompleted: (PhoneAuthCredential credential) async {
-          UserCredential _userCredential =
-              await _firebaseAuth.signInWithCredential(credential);
-        },
-        verificationFailed: (FirebaseAuthException e) {
-          log(e.toString());
-        },
-        codeSent: (String verificationId, int? resendToken) async {},
-        codeAutoRetrievalTimeout: (String verificationId) {},
-      );
-      return right(unit);
-    } on PlatformException catch (e) {
-      if (e.code == 'phone-number-already-exists') {
-        return left(const AuthFailure.phoneNumberAlreadyInUse());
-      } else {
-        return left(const AuthFailure.serverError());
-      }
-    }
-  }
-
-  @override
   Future<Either<AuthFailure, String>> verifyPhoneNumber({
     required PhoneNumber phoneNumber,
   }) async {
@@ -157,6 +129,32 @@ class FirebaseAuthFacade implements IAuthFacade {
       return left(const AuthFailure.serverError());
     } on PlatformException catch (_) {
       return left(const AuthFailure.cancelledByUser());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> generateEmailAccount(
+      {required EmailAddress emailAddress, required String password}) async {
+    try {
+      final email = emailAddress.getOrCrash();
+
+      final credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+      final linkingResult =
+          await _firebaseAuth.currentUser!.linkWithCredential(credential);
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+      return left(const AuthFailure.serverError());
+    } catch (e) {
+      print(e);
+      return left(const AuthFailure.serverError());
     }
   }
 }

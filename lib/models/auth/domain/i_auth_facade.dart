@@ -4,8 +4,9 @@ import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
 
 abstract class IAuthFacade {
-  Future<Either<AuthFailure, Unit>> registerWithPhoneNumber({
-    required PhoneNumber phoneNumber,
+  Future<Either<AuthFailure, Unit>> generateEmailAccount({
+    required EmailAddress emailAddress,
+    required String password,
   });
   Future<Either<AuthFailure, String>> verifyPhoneNumber({
     required PhoneNumber phoneNumber,

@@ -10,6 +10,7 @@ class AuthEvent with _$AuthEvent {
 
   const factory AuthEvent.verifyPhoneNumber() = VerifyPhoneNumber;
   const factory AuthEvent.verifyOTP(List<String> otpCode) = VerifyOTP;
+  const factory AuthEvent.linkEmailWithPhone() = LinkEmailWithPhone;
   const factory AuthEvent.signInWithPhoneNumberAndPasswordPressed() =
       SignInWithPhoneNumberAndPasswordPressed;
   const factory AuthEvent.signInWithGooglePressed() = SignInWithGooglePressed;
