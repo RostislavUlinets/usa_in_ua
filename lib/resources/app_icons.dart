@@ -5,12 +5,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AppIcons {
   AppIcons._();
 
-  static const String _path = 'assets/icons';
+  static const String _path = 'assets/icons/';
 
   static SvgPicture viewer = SvgPicture.asset('$_path/viewer.svg');
-  static SvgPicture locker = SvgPicture.asset('$_path/lock.svg');
-  static SvgPicture addUser = SvgPicture.asset('$_path/add_user.svg');
-  static SvgPicture googleLogo = SvgPicture.asset('$_path/google_logo.svg');
-  static SvgPicture facebookLogo = SvgPicture.asset('$_path/facebook_logo.svg');
-  static SvgPicture password = SvgPicture.asset('$_path/password.svg');
+  static const String showPassword = _path + 'show.svg';
+  static const String hidePassword = _path + 'hide.svg';
+  static const String locker = _path + 'lock.svg';
+  static const String addUser = _path + 'add_user.svg';
+  static const String googleLogo = _path + 'google_logo.svg';
+  static const String facebookLogo = _path + 'facebook_logo.svg';
+  static const String password = _path + 'password.svg';
 }

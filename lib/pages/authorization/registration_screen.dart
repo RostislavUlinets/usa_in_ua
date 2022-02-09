@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
 import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
@@ -94,8 +95,7 @@ class RegistrationScreen extends StatelessWidget {
                                   .value
                                   .fold(
                                     (f) => f.maybeMap(
-                                      invalidUserName: (_) =>
-                                          'Incorrect Name',
+                                      invalidUserName: (_) => 'Incorrect Name',
                                       orElse: () => null,
                                     ),
                                     (_) => null,
@@ -262,7 +262,7 @@ class RegistrationScreen extends StatelessWidget {
                           },
                           child: Row(
                             children: [
-                              AppIcons.password,
+                              SvgPicture.asset(AppIcons.password),
                               const Padding(
                                 padding: EdgeInsets.all(15.0),
                                 child: Text(
@@ -299,7 +299,7 @@ class RegistrationScreen extends StatelessWidget {
                                   color: AppColors.text,
                                 ),
                               ),
-                              AppIcons.googleLogo,
+                              SvgPicture.asset(AppIcons.googleLogo),
                             ],
                           ),
                         ),
@@ -326,7 +326,7 @@ class RegistrationScreen extends StatelessWidget {
                                   color: AppColors.text,
                                 ),
                               ),
-                              AppIcons.facebookLogo,
+                              SvgPicture.asset(AppIcons.facebookLogo),
                             ],
                           ),
                         ),

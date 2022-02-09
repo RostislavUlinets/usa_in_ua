@@ -12,10 +12,17 @@ import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 import 'package:usa_in_ua/services/send_email.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const String routeName = '/login_screen';
 
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _passwordVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class LoginScreen extends StatelessWidget {
           resizeToAvoidBottomInset: false,
           body: Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: 70.0,
+              vertical: 50.0,
               horizontal: 30.0,
             ),
             child: Form(
@@ -114,6 +121,7 @@ class LoginScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15.0, vertical: 5.0),
                             child: TextFormField(
+                              obscureText: _passwordVisible,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Ваш пороль*',
@@ -125,9 +133,14 @@ class LoginScreen extends StatelessWidget {
                                 ),
                                 suffixIcon: IconButton(
                                   iconSize: 14,
-                                  icon: SvgPicture.asset(
-                                      'assets/icons/viewer.svg'),
-                                  onPressed: () {},
+                                  icon: _passwordVisible
+                                      ? SvgPicture.asset(AppIcons.showPassword)
+                                      : SvgPicture.asset(AppIcons.hidePassword),
+                                  onPressed: () {
+                                    setState(() {
+                                      _passwordVisible = !_passwordVisible;
+                                    });
+                                  },
                                 ),
                               ),
                               onChanged: (value) =>
@@ -203,7 +216,7 @@ class LoginScreen extends StatelessWidget {
                           },
                           child: Row(
                             children: [
-                              AppIcons.locker,
+                              SvgPicture.asset(AppIcons.locker),
                               const Padding(
                                 padding: EdgeInsets.all(15.0),
                                 child: Text(
@@ -230,7 +243,7 @@ class LoginScreen extends StatelessWidget {
                           },
                           child: Row(
                             children: [
-                              AppIcons.addUser,
+                              SvgPicture.asset(AppIcons.addUser),
                               const Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 15.0),
                                 child: Text(
@@ -267,7 +280,7 @@ class LoginScreen extends StatelessWidget {
                                   color: AppColors.text,
                                 ),
                               ),
-                              AppIcons.googleLogo,
+                              SvgPicture.asset(AppIcons.googleLogo),
                             ],
                           ),
                         ),
@@ -296,7 +309,7 @@ class LoginScreen extends StatelessWidget {
                                   color: AppColors.text,
                                 ),
                               ),
-                              AppIcons.facebookLogo,
+                              SvgPicture.asset(AppIcons.facebookLogo),
                             ],
                           ),
                         ),

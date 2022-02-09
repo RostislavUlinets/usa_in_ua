@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:usa_in_ua/pages/authorization/login_screen.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
@@ -111,10 +113,12 @@ class _RestorePasswordState extends State<RestorePassword> {
                     height: 20,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, LoginScreen.routeName);
+                    },
                     child: Row(
                       children: [
-                        AppIcons.password,
+                        SvgPicture.asset(AppIcons.password),
                         const Padding(
                           padding: EdgeInsets.all(15.0),
                           child: Text(
