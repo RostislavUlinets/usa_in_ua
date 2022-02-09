@@ -1,37 +1,39 @@
 import 'dart:convert';
 import 'dart:math';
-
-import 'package:http/http.dart' as http;
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
+import 'package:http/http.dart' as http;
 
 class EmailSevice {
-  Future sendEmail({
+  Future<void> sendEmail({
     required UserName userName,
     required EmailAddress emailAddress,
     required String password,
   }) async {
     String userNameStr = userName.getOrCrash();
     String emailAddressStr = emailAddress.getOrCrash();
-    final serviceId = 'service_nx4azh9';
-    final templateId = 'template_eriji3u';
-    final userId = 'user_YOJhnRRf7aMshOcYlAkwj';
+    const serviceId = 'service_nx4azh9';
+    const templateId = 'template_eriji3u';
+    const userId = 'user_YOJhnRRf7aMshOcYlAkwj';
 
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
-    final response = await http.post(
+    await http.post(
       url,
       headers: {
+        'origin': 'http://localhost',
         'Content-Type': 'application/json',
       },
-      body: json.encode({
-        'service_id': serviceId,
-        'template_id': templateId,
-        'user_id': userId,
-        'template_params': {
-          'user_name': userNameStr,
-          'user_email': emailAddressStr,
-          'message': 'Your new account password: $password',
-        }
-      }),
+      body: json.encode(
+        {
+          'service_id': serviceId,
+          'template_id': templateId,
+          'user_id': userId,
+          'template_params': {
+            'user_name': userNameStr,
+            'user_email': emailAddressStr,
+            'message': password
+          }
+        },
+      ),
     );
   }
 
