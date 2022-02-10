@@ -3,16 +3,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:usa_in_ua/models/user/user.dart';
 
 class FireStoreDatabase {
-  FireStoreDatabase._();
-
   final String uid = FirebaseAuth.instance.currentUser!.uid;
 
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection('users');
 
-  Future<void> storeUserData({required String userName}) async {
-    DocumentSnapshot ds = await userCollection.doc(uid).get();
+  Future<void> addUser(UserModel user) async {
+    await userCollection.doc(uid).set(user.toJson());
+  }
 
-    
+  Future<void> updateUser(UserModel user) async {
+    await userCollection.doc(uid).update(user.toJson());
+  }
+
+  Future<void> deleteUser() async {
+    await userCollection.doc(uid).delete();
   }
 }

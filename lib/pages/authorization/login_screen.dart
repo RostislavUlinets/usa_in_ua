@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
+import 'package:usa_in_ua/database/firestore_data.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
+import 'package:usa_in_ua/models/user/user.dart';
 import 'package:usa_in_ua/pages/authorization/otp_screen.dart';
 import 'package:usa_in_ua/pages/authorization/registration_complete.dart';
 import 'package:usa_in_ua/pages/authorization/registration_screen.dart';
@@ -171,10 +173,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      context.read<AuthBloc>().add(
-                            const AuthEvent
-                                .signInWithPhoneNumberAndPasswordPressed(),
-                          );
+                      // context.read<AuthBloc>().add(
+                      //       const AuthEvent
+                      //           .signInWithPhoneNumberAndPasswordPressed(),
+                      //     );
+                      UserModel user = const UserModel(
+                        uid: '123asd123123',
+                        name: 'Rostislav',
+                        email: 'poct2002@gmail.com',
+                        phone: '+380665312863',
+                      );
+                      FireStoreDatabase database = FireStoreDatabase();
+                      database.addUser(user);
                     },
                     child: Container(
                       width: double.infinity,
