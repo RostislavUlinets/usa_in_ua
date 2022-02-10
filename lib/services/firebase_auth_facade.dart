@@ -107,17 +107,25 @@ class FirebaseAuthFacade implements IAuthFacade {
     required PhoneNumber phoneNumber,
     required Password password,
   }) async {
-    String phoneNumberStr = phoneNumber.getOrCrash();
-    String passwordStr = password.getOrCrash();
-    FireStoreDatabase database = FireStoreDatabase();
-    UserModel? user = await database.findUserByPhoneNumber(phoneNumberStr);
-    final authCredential = EmailAuthProvider.credential(
-      email: user!.email,
-      password: passwordStr,
-    );
+    try {
+      String phoneNumberStr = phoneNumber.getOrCrash();
+      String passwordStr = password.getOrCrash();
+      FireStoreDatabase database = FireStoreDatabase();
+      UserModel? user = await database.findUserByPhoneNumber(phoneNumberStr);
+      final authCredential = EmailAuthProvider.credential(
+        email: user!.email,
+        password: passwordStr,
+      );
 
-    await _firebaseAuth.signInWithCredential(authCredential);
-    return right(unit);
+      await _firebaseAuth.signInWithCredential(authCredential);
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'wrong-password') {
+        return left(
+            const AuthFailure.invalidPhoneNumberAndPasswordCombination());
+      }
+      return left(const AuthFailure.serverError());
+    }
   }
 
   @override
