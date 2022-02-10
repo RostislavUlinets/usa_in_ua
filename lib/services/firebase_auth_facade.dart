@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:usa_in_ua/database/firestore_data.dart';
 import 'package:usa_in_ua/models/auth/core/errors.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
+import 'package:usa_in_ua/models/user/user.dart';
 import 'package:usa_in_ua/pages/authorization/widgets/otp_widget.dart';
 
 @LazySingleton(as: IAuthFacade)
@@ -105,7 +107,17 @@ class FirebaseAuthFacade implements IAuthFacade {
     required PhoneNumber phoneNumber,
     required Password password,
   }) async {
-    return left(const AuthFailure.serverError());
+    String phoneNumberStr = phoneNumber.getOrCrash();
+    String passwordStr = password.getOrCrash();
+    FireStoreDatabase database = FireStoreDatabase();
+    UserModel? user = await database.findUserByPhoneNumber(phoneNumberStr);
+    final authCredential = EmailAuthProvider.credential(
+      email: user!.email,
+      password: passwordStr,
+    );
+
+    await _firebaseAuth.signInWithCredential(authCredential);
+    return right(unit);
   }
 
   @override

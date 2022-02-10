@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
+import 'package:usa_in_ua/services/auth_service.dart';
 import 'package:usa_in_ua/services/send_email.dart';
 
 part 'auth_event.dart';
@@ -168,7 +169,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       },
     );
     on<LinkEmailWithPhone>((event, emit) async {
-      final emailService = EmailSevice();
+      final authService = AuthService();
 
       emit(
         state.copyWith(
@@ -176,7 +177,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           authFailureOrSuccessOption: none(),
         ),
       );
-      final String generatedPassword = emailService.generatePassword();
+      final String generatedPassword = authService.generatePassword();
 
       final failureOrSuccess = await _authFacade.generateEmailAccount(
         emailAddress: state.emailAddress,
@@ -185,11 +186,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       failureOrSuccess.fold(
         (l) => null,
-        (r) => emailService.sendEmail(
-          userName: state.userName,
-          emailAddress: state.emailAddress,
-          password: generatedPassword,
-        ),
+        (r) {
+          authService.sendEmail(
+            userName: state.userName,
+            emailAddress: state.emailAddress,
+            password: generatedPassword,
+          );
+
+          authService.generateUserData(
+            userName: state.userName,
+            emailAddress: state.emailAddress,
+            phoneNumber: state.phoneNumber,
+          );
+        },
       );
 
       emit(

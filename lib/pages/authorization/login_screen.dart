@@ -81,6 +81,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15.0, vertical: 5.0),
                             child: TextFormField(
+                              toolbarOptions: const ToolbarOptions(
+                                paste: true,
+                                cut: true,
+                                selectAll: true,
+                                copy: true,
+                              ),
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Ваш Номер телефона*',
@@ -124,6 +130,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 horizontal: 15.0, vertical: 5.0),
                             child: TextFormField(
                               obscureText: _passwordVisible,
+                              toolbarOptions: const ToolbarOptions(
+                                paste: true,
+                                cut: true,
+                                selectAll: true,
+                                copy: true,
+                              ),
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Ваш пороль*',
@@ -173,18 +185,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // context.read<AuthBloc>().add(
-                      //       const AuthEvent
-                      //           .signInWithPhoneNumberAndPasswordPressed(),
-                      //     );
-                      UserModel user = const UserModel(
-                        uid: '123asd123123',
-                        name: 'Rostislav',
-                        email: 'poct2002@gmail.com',
-                        phone: '+380665312863',
-                      );
-                      FireStoreDatabase database = FireStoreDatabase();
-                      database.addUser(user);
+                      context.read<AuthBloc>().add(
+                            const AuthEvent
+                                .signInWithPhoneNumberAndPasswordPressed(),
+                          );
                     },
                     child: Container(
                       width: double.infinity,
