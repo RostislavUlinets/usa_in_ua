@@ -63,7 +63,7 @@ class _RegistrationCompleteState extends State<RegistrationComplete> {
                     fontFamily: 'lato',
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 GestureDetector(

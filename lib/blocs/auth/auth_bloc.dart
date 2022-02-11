@@ -1,15 +1,12 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
 import 'package:usa_in_ua/services/auth_service.dart';
-import 'package:usa_in_ua/services/send_email.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
