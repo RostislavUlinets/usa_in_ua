@@ -36,7 +36,11 @@ class _RestoringPasswordState extends State<RestoringPassword> {
                 ),
               ).show(context);
             },
-            (_) {},
+            (_) {
+              FlushbarHelper.createSuccess(
+                      message: 'Пароль был отправлен вам на почту.')
+                  .show(context);
+            },
           ),
         );
       },

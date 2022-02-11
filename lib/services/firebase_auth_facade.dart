@@ -11,7 +11,6 @@ import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
 import 'package:usa_in_ua/models/user/user.dart';
-import 'package:usa_in_ua/pages/authorization/widgets/otp_widget.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {

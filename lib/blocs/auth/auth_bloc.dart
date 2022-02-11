@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -84,13 +83,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               ),
             ),
           );
-
-          emit(
-            state.copyWith(
-              isSubmitting: false,
-              authFailureOrSuccessOption: optionOf(failureOrSuccess),
-            ),
-          );
         }
 
         emit(
@@ -124,12 +116,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         ),
       );
 
-      authResult.fold(
-        (l) => null,
-        (r) => add(
-          const LinkEmailWithPhone(),
-        ),
-      );
+      // authResult.fold(
+      //   (l) => null,
+      //   (r) => add(
+      //     const LinkEmailWithPhone(),
+      //   ),
+      // );
     });
     on<SignInWithPhoneNumberAndPasswordPressed>(
       (event, emit) async {
@@ -146,13 +138,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           failureOrSuccess = await _authFacade.signInWithPhoneNumberAndPassword(
             phoneNumber: state.phoneNumber,
             password: state.password,
-          );
-
-          emit(
-            state.copyWith(
-              isSubmitting: false,
-              authFailureOrSuccessOption: some(failureOrSuccess),
-            ),
           );
         }
 

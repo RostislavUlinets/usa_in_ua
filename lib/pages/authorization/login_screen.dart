@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ).show(context);
             },
             (_) {
-              Navigator.pushNamed(
+              Navigator.pushReplacementNamed(
                 context,
                 RegistrationComplete.routeName,
               );
@@ -238,7 +238,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(
+                            Navigator.pushReplacementNamed(
                               context,
                               RestoringPassword.routeName,
                             );

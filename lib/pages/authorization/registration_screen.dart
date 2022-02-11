@@ -246,7 +246,10 @@ class RegistrationScreen extends StatelessWidget {
                       context.read<AuthBloc>().add(
                             const AuthEvent.verifyPhoneNumber(),
                           );
-                      Navigator.pushNamed(context, OtpScreen.routeName);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        OtpScreen.routeName,
+                      );
                     },
                     child: Container(
                       width: double.infinity,
@@ -282,7 +285,10 @@ class RegistrationScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, LoginScreen.routeName);
+                            Navigator.pushReplacementNamed(
+                              context,
+                              LoginScreen.routeName,
+                            );
                           },
                           child: Row(
                             children: [

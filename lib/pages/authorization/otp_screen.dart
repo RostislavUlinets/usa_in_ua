@@ -10,8 +10,6 @@ import 'package:usa_in_ua/pages/authorization/widgets/resend_otp.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
-import 'widgets/otp_widget.dart';
-
 class OtpScreen extends StatefulWidget {
   static const String routeName = '/OtpScreen';
 
@@ -43,10 +41,15 @@ class _OtpScreenState extends State<OtpScreen> {
               ).show(context);
             },
             (_) {
-              Navigator.pushNamed(
-                context,
-                RegistrationComplete.routeName,
-              );
+              FlushbarHelper.createSuccess(
+                      message: 'Регистрация прошла успешно')
+                  .show(context);
+              Future.delayed(const Duration(seconds: 2), () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  RegistrationComplete.routeName,
+                );
+              });
             },
           ),
         );
