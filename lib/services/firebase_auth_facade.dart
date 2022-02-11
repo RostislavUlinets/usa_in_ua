@@ -3,12 +3,10 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:usa_in_ua/database/firestore_data.dart';
-import 'package:usa_in_ua/models/auth/core/errors.dart';
 import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
@@ -30,7 +28,6 @@ class FirebaseAuthFacade implements IAuthFacade {
     required PhoneNumber phoneNumber,
   }) async {
     final phoneNumberStr = phoneNumber.getOrCrash();
-    String verificationCode = '';
     final completer = Completer<Either<AuthFailure, String>>();
     try {
       await _firebaseAuth.verifyPhoneNumber(
@@ -38,8 +35,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         timeout: const Duration(seconds: 60),
         verificationCompleted: (PhoneAuthCredential credential) async {
           log('123');
-          UserCredential _userCredential =
-              await _firebaseAuth.signInWithCredential(credential);
+          await _firebaseAuth.signInWithCredential(credential);
         },
         verificationFailed: (FirebaseAuthException e) {
           log(e.toString());
@@ -92,12 +88,9 @@ class FirebaseAuthFacade implements IAuthFacade {
       } else {
         return left(const AuthFailure.serverError());
       }
-    } on FirebaseAuthException catch (e) {
-      // if (e.code == 'user-disabled') {
-      //   log('HELLO!!! User disabled by admin, go away');
-      // }
+    } on FirebaseAuthException {
       return left(const AuthFailure.serverError());
-    } on PlatformException catch (_) {
+    } on PlatformException {
       return left(const AuthFailure.cancelledByUser());
     }
   }
@@ -162,18 +155,19 @@ class FirebaseAuthFacade implements IAuthFacade {
         email: email,
         password: password,
       );
-      final linkingResult =
-          await _firebaseAuth.currentUser!.linkWithCredential(credential);
+
+      await _firebaseAuth.currentUser!.linkWithCredential(credential);
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        
+        log('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        log('The account already exists for that email.');
       }
       return left(const AuthFailure.serverError());
     } catch (e) {
-      print(e);
+      log(e.toString());
       return left(const AuthFailure.serverError());
     }
   }
