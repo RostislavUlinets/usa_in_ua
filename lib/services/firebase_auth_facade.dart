@@ -68,18 +68,14 @@ class FirebaseAuthFacade implements IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> confirmOTP({
     required String verificationCode,
-    required List<String> otpCode,
+    required String otpCode,
   }) async {
-    String code = '';
-    for (int i = 0; i < 6; i++) {
-      code += storage[i].toString();
-    }
     try {
       final credential = PhoneAuthProvider.credential(
         verificationId: verificationCode,
-        smsCode: code,
+        smsCode: otpCode,
       );
-      log('VerificatonCode: $verificationCode \n SmsCode: $code');
+      log('VerificatonCode: $verificationCode \n SmsCode: $otpCode');
       final UserCredential authResult =
           await FirebaseAuth.instance.signInWithCredential(credential);
       if (authResult.user != null) {
@@ -88,7 +84,10 @@ class FirebaseAuthFacade implements IAuthFacade {
       } else {
         return left(const AuthFailure.serverError());
       }
-    } on FirebaseAuthException {
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'phone-number-already-exists') {
+        return left(const AuthFailure.phoneNumberAlreadyInUse());
+      }
       return left(const AuthFailure.serverError());
     } on PlatformException {
       return left(const AuthFailure.cancelledByUser());
@@ -160,7 +159,6 @@ class FirebaseAuthFacade implements IAuthFacade {
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        
         log('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         log('The account already exists for that email.');

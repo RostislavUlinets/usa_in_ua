@@ -1,20 +1,28 @@
-
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/pages/authorization/login_screen.dart';
+import 'package:usa_in_ua/pages/authorization/registration_complete.dart';
 import 'package:usa_in_ua/pages/authorization/widgets/resend_otp.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
 
 import 'widgets/otp_widget.dart';
 
-class OtpScreen extends StatelessWidget {
+class OtpScreen extends StatefulWidget {
   static const String routeName = '/OtpScreen';
 
   const OtpScreen({Key? key}) : super(key: key);
+
+  @override
+  State<OtpScreen> createState() => _OtpScreenState();
+}
+
+class _OtpScreenState extends State<OtpScreen> {
+  String currentText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +42,12 @@ class OtpScreen extends StatelessWidget {
                 ),
               ).show(context);
             },
-            (_) {},
+            (_) {
+              Navigator.pushNamed(
+                context,
+                RegistrationComplete.routeName,
+              );
+            },
           ),
         );
       },
@@ -64,16 +77,104 @@ class OtpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Text(
-                    'Смс с кодом отправленно на номер:\n+38 063 058 8512',
-                    style: TextStyle(
+                  Text(
+                    'Смс с кодом отправленно на номер:\n${state.phoneNumber.getOrCrash()}',
+                    style: const TextStyle(
                       fontFamily: 'lato',
                       fontWeight: FontWeight.w800,
                       color: AppColors.blue,
                       fontSize: 16,
                     ),
                   ),
-                  const Otp(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30.0),
+                    child: PinCodeTextField(
+                      textStyle: const TextStyle(
+                        fontSize: 36,
+                        fontFamily: 'lato',
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.text,
+                      ),
+                      backgroundColor: Colors.white,
+                      appContext: context,
+                      pastedTextStyle: TextStyle(
+                        color: Colors.green.shade600,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      length: 6,
+                      animationType: AnimationType.fade,
+                      pinTheme: PinTheme(
+                        shape: PinCodeFieldShape.underline,
+                        borderWidth: 3,
+                        borderRadius: BorderRadius.circular(5),
+                        fieldHeight: 50,
+                        fieldWidth: 40,
+                        activeFillColor: Colors.white,
+                        inactiveFillColor: Colors.white,
+                        inactiveColor: AppColors.notActive,
+                        activeColor: AppColors.text,
+                        selectedFillColor: Colors.white,
+                        selectedColor: AppColors.text,
+                      ),
+                      cursorColor: Colors.black,
+                      animationDuration: Duration(milliseconds: 300),
+                      enableActiveFill: true,
+                      keyboardType: TextInputType.number,
+                      onCompleted: (v) {
+                        print("Completed");
+                      },
+                      onChanged: (value) {
+                        print(value);
+                        setState(
+                          () {
+                            currentText = value;
+                          },
+                        );
+                      },
+                      beforeTextPaste: (text) {
+                        print("Allowing to paste $text");
+                        return true;
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        context.read<AuthBloc>().add(
+                              AuthEvent.verifyOTP(currentText),
+                            );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'Зарегистрироваться',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: 1,
+                            color: AppColors.buttonText,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: AppColors.green,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.green.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(
+                                  0, 8), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  // const Otp(),
                   const ResendOTP(),
                   Row(
                     children: [

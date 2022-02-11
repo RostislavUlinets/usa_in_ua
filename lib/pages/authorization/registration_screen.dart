@@ -74,14 +74,22 @@ class RegistrationScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15.0, vertical: 5.0),
                             child: TextFormField(
+                              style: const TextStyle(
+                                color: AppColors.text,
+                                fontSize: 16,
+                                fontFamily: 'lato',
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w800,
+                              ),
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
-                                hintText: 'Ваше имя*',
-                                hintStyle: TextStyle(
+                                labelText: 'Ваше имя*',
+                                labelStyle: TextStyle(
                                   color: AppColors.notActive,
                                   fontSize: 14,
                                   fontFamily: 'lato',
                                   letterSpacing: 1,
+                                  fontWeight: FontWeight.normal,
                                 ),
                               ),
                               onChanged: (value) =>
@@ -117,14 +125,22 @@ class RegistrationScreen extends StatelessWidget {
                               vertical: 5.0,
                             ),
                             child: TextFormField(
+                              style: const TextStyle(
+                                color: AppColors.text,
+                                fontSize: 16,
+                                fontFamily: 'lato',
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w800,
+                              ),
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
-                                hintText: 'Ваш email*',
-                                hintStyle: TextStyle(
+                                labelText: 'Ваш email*',
+                                labelStyle: TextStyle(
                                   color: AppColors.notActive,
                                   fontSize: 14,
                                   fontFamily: 'lato',
                                   letterSpacing: 1,
+                                  fontWeight: FontWeight.normal,
                                 ),
                               ),
                               onChanged: (value) =>
@@ -159,14 +175,22 @@ class RegistrationScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15.0, vertical: 5.0),
                             child: TextFormField(
+                              style: const TextStyle(
+                                color: AppColors.text,
+                                fontSize: 16,
+                                fontFamily: 'lato',
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w800,
+                              ),
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
-                                hintText: 'Ваш Номер телефона*',
-                                hintStyle: TextStyle(
+                                labelText: 'Ваш Номер телефона*',
+                                labelStyle: TextStyle(
                                   color: AppColors.notActive,
                                   fontSize: 14,
                                   fontFamily: 'lato',
                                   letterSpacing: 1,
+                                  fontWeight: FontWeight.normal,
                                 ),
                               ),
                               onChanged: (value) =>
@@ -300,33 +324,6 @@ class RegistrationScreen extends StatelessWidget {
                                 ),
                               ),
                               SvgPicture.asset(AppIcons.googleLogo),
-                            ],
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.button,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Войти как пользователь',
-                                style: TextStyle(
-                                  color: AppColors.text,
-                                ),
-                              ),
-                              SvgPicture.asset(AppIcons.facebookLogo),
                             ],
                           ),
                         ),

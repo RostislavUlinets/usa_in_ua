@@ -82,6 +82,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15.0, vertical: 5.0),
                             child: TextFormField(
+                              style: const TextStyle(
+                                color: AppColors.text,
+                                fontSize: 14,
+                                fontFamily: 'lato',
+                                letterSpacing: 1,
+                              ),
                               toolbarOptions: const ToolbarOptions(
                                 paste: true,
                                 cut: true,
@@ -130,6 +136,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15.0, vertical: 5.0),
                             child: TextFormField(
+                              style: const TextStyle(
+                                color: AppColors.text,
+                                fontSize: 14,
+                                fontFamily: 'lato',
+                                letterSpacing: 1,
+                              ),
                               obscureText: _passwordVisible,
                               toolbarOptions: const ToolbarOptions(
                                 paste: true,
@@ -255,7 +267,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                             // Navigator.pushNamed(
                             //   context,
-                            //   RegistrationComplete.routeName,
+                            //   OtpScreen.routeName,
                             // );
                           },
                           child: Row(
@@ -298,35 +310,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                               SvgPicture.asset(AppIcons.googleLogo),
-                            ],
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.button,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, OtpScreen.routeName);
-                      },
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Войти как пользователь',
-                                style: TextStyle(
-                                  color: AppColors.text,
-                                ),
-                              ),
-                              SvgPicture.asset(AppIcons.facebookLogo),
                             ],
                           ),
                         ),

@@ -12,7 +12,7 @@ abstract class IAuthFacade {
   });
   Future<Either<AuthFailure, Unit>> confirmOTP({
     required String verificationCode,
-    required List<String> otpCode,
+    required String otpCode,
   });
   Future<Either<AuthFailure, Unit>> signInWithPhoneNumberAndPassword({
     required PhoneNumber phoneNumber,

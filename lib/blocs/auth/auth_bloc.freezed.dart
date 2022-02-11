@@ -46,7 +46,7 @@ class _$AuthEventTearOff {
     return const VerifyPhoneNumber();
   }
 
-  VerifyOTP verifyOTP(List<String> otpCode) {
+  VerifyOTP verifyOTP(String otpCode) {
     return VerifyOTP(
       otpCode,
     );
@@ -84,7 +84,7 @@ mixin _$AuthEvent {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -98,7 +98,7 @@ mixin _$AuthEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -112,7 +112,7 @@ mixin _$AuthEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -255,7 +255,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -272,7 +272,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -289,7 +289,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -440,7 +440,7 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -457,7 +457,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -474,7 +474,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -625,7 +625,7 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -642,7 +642,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -659,7 +659,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -810,7 +810,7 @@ class _$UserNameChanged implements UserNameChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -827,7 +827,7 @@ class _$UserNameChanged implements UserNameChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -844,7 +844,7 @@ class _$UserNameChanged implements UserNameChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -972,7 +972,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -989,7 +989,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1006,7 +1006,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1087,7 +1087,7 @@ abstract class VerifyPhoneNumber implements AuthEvent {
 abstract class $VerifyOTPCopyWith<$Res> {
   factory $VerifyOTPCopyWith(VerifyOTP value, $Res Function(VerifyOTP) then) =
       _$VerifyOTPCopyWithImpl<$Res>;
-  $Res call({List<String> otpCode});
+  $Res call({String otpCode});
 }
 
 /// @nodoc
@@ -1107,7 +1107,7 @@ class _$VerifyOTPCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
       otpCode == freezed
           ? _value.otpCode
           : otpCode // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String,
     ));
   }
 }
@@ -1118,7 +1118,7 @@ class _$VerifyOTP implements VerifyOTP {
   const _$VerifyOTP(this.otpCode);
 
   @override
-  final List<String> otpCode;
+  final String otpCode;
 
   @override
   String toString() {
@@ -1150,7 +1150,7 @@ class _$VerifyOTP implements VerifyOTP {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -1167,7 +1167,7 @@ class _$VerifyOTP implements VerifyOTP {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1184,7 +1184,7 @@ class _$VerifyOTP implements VerifyOTP {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1258,9 +1258,9 @@ class _$VerifyOTP implements VerifyOTP {
 }
 
 abstract class VerifyOTP implements AuthEvent {
-  const factory VerifyOTP(List<String> otpCode) = _$VerifyOTP;
+  const factory VerifyOTP(String otpCode) = _$VerifyOTP;
 
-  List<String> get otpCode;
+  String get otpCode;
   @JsonKey(ignore: true)
   $VerifyOTPCopyWith<VerifyOTP> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1312,7 +1312,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -1329,7 +1329,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1346,7 +1346,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1475,7 +1475,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -1492,7 +1492,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1509,7 +1509,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1633,7 +1633,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -1650,7 +1650,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1667,7 +1667,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1814,7 +1814,7 @@ class _$RestorePassword implements RestorePassword {
     required TResult Function(String password) passwordChanged,
     required TResult Function(String userName) userNameChanged,
     required TResult Function() verifyPhoneNumber,
-    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function(String otpCode) verifyOTP,
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -1831,7 +1831,7 @@ class _$RestorePassword implements RestorePassword {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1848,7 +1848,7 @@ class _$RestorePassword implements RestorePassword {
     TResult Function(String password)? passwordChanged,
     TResult Function(String userName)? userNameChanged,
     TResult Function()? verifyPhoneNumber,
-    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function(String otpCode)? verifyOTP,
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,

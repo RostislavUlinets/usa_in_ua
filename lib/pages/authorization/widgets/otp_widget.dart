@@ -6,7 +6,7 @@ import 'package:usa_in_ua/blocs/auth/auth_bloc.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 
 const int otpSize = 6;
-List<String> storage = List<String>.filled(otpSize, '');
+List<String> otpCodeStorage = List<String>.filled(otpSize, '');
 
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
@@ -64,9 +64,9 @@ class _OtpState extends State<Otp> {
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: GestureDetector(
               onTap: () {
-                context.read<AuthBloc>().add(
-                      AuthEvent.verifyOTP(storage),
-                    );
+                // context.read<AuthBloc>().add(
+                //       AuthEvent.verifyOTP(otpCodeStorage),
+                //     );
               },
               child: Container(
                 width: double.infinity,
@@ -120,7 +120,7 @@ class _OtpState extends State<Otp> {
               FocusScope.of(context).previousFocus();
             }
             log('Curent value: $value');
-            storage[position] = value;
+            otpCodeStorage[position] = value;
           },
           showCursor: false,
           readOnly: false,
