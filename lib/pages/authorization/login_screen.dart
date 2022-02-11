@@ -226,7 +226,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(
-                                context, RestorePassword.routeName);
+                              context,
+                              RestoringPassword.routeName,
+                            );
                           },
                           child: Row(
                             children: [

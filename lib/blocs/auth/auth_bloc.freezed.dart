@@ -64,6 +64,12 @@ class _$AuthEventTearOff {
   SignInWithGooglePressed signInWithGooglePressed() {
     return const SignInWithGooglePressed();
   }
+
+  RestorePassword restorePassword(String contactInfo) {
+    return RestorePassword(
+      contactInfo,
+    );
+  }
 }
 
 /// @nodoc
@@ -82,6 +88,7 @@ mixin _$AuthEvent {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,6 +102,7 @@ mixin _$AuthEvent {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,6 +116,7 @@ mixin _$AuthEvent {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +133,7 @@ mixin _$AuthEvent {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -138,6 +148,7 @@ mixin _$AuthEvent {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -152,6 +163,7 @@ mixin _$AuthEvent {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -247,6 +259,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return phoneNumberChanged(phoneNumber);
   }
@@ -263,6 +276,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return phoneNumberChanged?.call(phoneNumber);
   }
@@ -279,6 +293,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (phoneNumberChanged != null) {
@@ -301,6 +316,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return phoneNumberChanged(this);
   }
@@ -318,6 +334,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return phoneNumberChanged?.call(this);
   }
@@ -335,6 +352,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (phoneNumberChanged != null) {
@@ -426,6 +444,7 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return emailChanged(email);
   }
@@ -442,6 +461,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return emailChanged?.call(email);
   }
@@ -458,6 +478,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -480,6 +501,7 @@ class _$EmailChanged implements EmailChanged {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return emailChanged(this);
   }
@@ -497,6 +519,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return emailChanged?.call(this);
   }
@@ -514,6 +537,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -605,6 +629,7 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return passwordChanged(password);
   }
@@ -621,6 +646,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return passwordChanged?.call(password);
   }
@@ -637,6 +663,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -659,6 +686,7 @@ class _$PasswordChanged implements PasswordChanged {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return passwordChanged(this);
   }
@@ -676,6 +704,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return passwordChanged?.call(this);
   }
@@ -693,6 +722,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -784,6 +814,7 @@ class _$UserNameChanged implements UserNameChanged {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return userNameChanged(userName);
   }
@@ -800,6 +831,7 @@ class _$UserNameChanged implements UserNameChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return userNameChanged?.call(userName);
   }
@@ -816,6 +848,7 @@ class _$UserNameChanged implements UserNameChanged {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (userNameChanged != null) {
@@ -838,6 +871,7 @@ class _$UserNameChanged implements UserNameChanged {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return userNameChanged(this);
   }
@@ -855,6 +889,7 @@ class _$UserNameChanged implements UserNameChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return userNameChanged?.call(this);
   }
@@ -872,6 +907,7 @@ class _$UserNameChanged implements UserNameChanged {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (userNameChanged != null) {
@@ -940,6 +976,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return verifyPhoneNumber();
   }
@@ -956,6 +993,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return verifyPhoneNumber?.call();
   }
@@ -972,6 +1010,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (verifyPhoneNumber != null) {
@@ -994,6 +1033,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return verifyPhoneNumber(this);
   }
@@ -1011,6 +1051,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return verifyPhoneNumber?.call(this);
   }
@@ -1028,6 +1069,7 @@ class _$VerifyPhoneNumber implements VerifyPhoneNumber {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (verifyPhoneNumber != null) {
@@ -1112,6 +1154,7 @@ class _$VerifyOTP implements VerifyOTP {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return verifyOTP(otpCode);
   }
@@ -1128,6 +1171,7 @@ class _$VerifyOTP implements VerifyOTP {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return verifyOTP?.call(otpCode);
   }
@@ -1144,6 +1188,7 @@ class _$VerifyOTP implements VerifyOTP {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (verifyOTP != null) {
@@ -1166,6 +1211,7 @@ class _$VerifyOTP implements VerifyOTP {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return verifyOTP(this);
   }
@@ -1183,6 +1229,7 @@ class _$VerifyOTP implements VerifyOTP {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return verifyOTP?.call(this);
   }
@@ -1200,6 +1247,7 @@ class _$VerifyOTP implements VerifyOTP {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (verifyOTP != null) {
@@ -1268,6 +1316,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return linkEmailWithPhone();
   }
@@ -1284,6 +1333,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return linkEmailWithPhone?.call();
   }
@@ -1300,6 +1350,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (linkEmailWithPhone != null) {
@@ -1322,6 +1373,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return linkEmailWithPhone(this);
   }
@@ -1339,6 +1391,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return linkEmailWithPhone?.call(this);
   }
@@ -1356,6 +1409,7 @@ class _$LinkEmailWithPhone implements LinkEmailWithPhone {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (linkEmailWithPhone != null) {
@@ -1425,6 +1479,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return signInWithPhoneNumberAndPasswordPressed();
   }
@@ -1441,6 +1496,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return signInWithPhoneNumberAndPasswordPressed?.call();
   }
@@ -1457,6 +1513,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (signInWithPhoneNumberAndPasswordPressed != null) {
@@ -1479,6 +1536,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return signInWithPhoneNumberAndPasswordPressed(this);
   }
@@ -1496,6 +1554,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return signInWithPhoneNumberAndPasswordPressed?.call(this);
   }
@@ -1513,6 +1572,7 @@ class _$SignInWithPhoneNumberAndPasswordPressed
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (signInWithPhoneNumberAndPasswordPressed != null) {
@@ -1577,6 +1637,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     required TResult Function() linkEmailWithPhone,
     required TResult Function() signInWithPhoneNumberAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
   }) {
     return signInWithGooglePressed();
   }
@@ -1593,6 +1654,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
   }) {
     return signInWithGooglePressed?.call();
   }
@@ -1609,6 +1671,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function()? linkEmailWithPhone,
     TResult Function()? signInWithPhoneNumberAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
     required TResult orElse(),
   }) {
     if (signInWithGooglePressed != null) {
@@ -1631,6 +1694,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
         signInWithPhoneNumberAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
   }) {
     return signInWithGooglePressed(this);
   }
@@ -1648,6 +1712,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
   }) {
     return signInWithGooglePressed?.call(this);
   }
@@ -1665,6 +1730,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
         signInWithPhoneNumberAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
     required TResult orElse(),
   }) {
     if (signInWithGooglePressed != null) {
@@ -1676,6 +1742,192 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
 
 abstract class SignInWithGooglePressed implements AuthEvent {
   const factory SignInWithGooglePressed() = _$SignInWithGooglePressed;
+}
+
+/// @nodoc
+abstract class $RestorePasswordCopyWith<$Res> {
+  factory $RestorePasswordCopyWith(
+          RestorePassword value, $Res Function(RestorePassword) then) =
+      _$RestorePasswordCopyWithImpl<$Res>;
+  $Res call({String contactInfo});
+}
+
+/// @nodoc
+class _$RestorePasswordCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $RestorePasswordCopyWith<$Res> {
+  _$RestorePasswordCopyWithImpl(
+      RestorePassword _value, $Res Function(RestorePassword) _then)
+      : super(_value, (v) => _then(v as RestorePassword));
+
+  @override
+  RestorePassword get _value => super._value as RestorePassword;
+
+  @override
+  $Res call({
+    Object? contactInfo = freezed,
+  }) {
+    return _then(RestorePassword(
+      contactInfo == freezed
+          ? _value.contactInfo
+          : contactInfo // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RestorePassword implements RestorePassword {
+  const _$RestorePassword(this.contactInfo);
+
+  @override
+  final String contactInfo;
+
+  @override
+  String toString() {
+    return 'AuthEvent.restorePassword(contactInfo: $contactInfo)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RestorePassword &&
+            const DeepCollectionEquality()
+                .equals(other.contactInfo, contactInfo));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(contactInfo));
+
+  @JsonKey(ignore: true)
+  @override
+  $RestorePasswordCopyWith<RestorePassword> get copyWith =>
+      _$RestorePasswordCopyWithImpl<RestorePassword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String userName) userNameChanged,
+    required TResult Function() verifyPhoneNumber,
+    required TResult Function(List<String> otpCode) verifyOTP,
+    required TResult Function() linkEmailWithPhone,
+    required TResult Function() signInWithPhoneNumberAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function(String contactInfo) restorePassword,
+  }) {
+    return restorePassword(contactInfo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String userName)? userNameChanged,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function()? linkEmailWithPhone,
+    TResult Function()? signInWithPhoneNumberAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
+  }) {
+    return restorePassword?.call(contactInfo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String userName)? userNameChanged,
+    TResult Function()? verifyPhoneNumber,
+    TResult Function(List<String> otpCode)? verifyOTP,
+    TResult Function()? linkEmailWithPhone,
+    TResult Function()? signInWithPhoneNumberAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function(String contactInfo)? restorePassword,
+    required TResult orElse(),
+  }) {
+    if (restorePassword != null) {
+      return restorePassword(contactInfo);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(UserNameChanged value) userNameChanged,
+    required TResult Function(VerifyPhoneNumber value) verifyPhoneNumber,
+    required TResult Function(VerifyOTP value) verifyOTP,
+    required TResult Function(LinkEmailWithPhone value) linkEmailWithPhone,
+    required TResult Function(SignInWithPhoneNumberAndPasswordPressed value)
+        signInWithPhoneNumberAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(RestorePassword value) restorePassword,
+  }) {
+    return restorePassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(UserNameChanged value)? userNameChanged,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
+    TResult Function(LinkEmailWithPhone value)? linkEmailWithPhone,
+    TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
+        signInWithPhoneNumberAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
+  }) {
+    return restorePassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(UserNameChanged value)? userNameChanged,
+    TResult Function(VerifyPhoneNumber value)? verifyPhoneNumber,
+    TResult Function(VerifyOTP value)? verifyOTP,
+    TResult Function(LinkEmailWithPhone value)? linkEmailWithPhone,
+    TResult Function(SignInWithPhoneNumberAndPasswordPressed value)?
+        signInWithPhoneNumberAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RestorePassword value)? restorePassword,
+    required TResult orElse(),
+  }) {
+    if (restorePassword != null) {
+      return restorePassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RestorePassword implements AuthEvent {
+  const factory RestorePassword(String contactInfo) = _$RestorePassword;
+
+  String get contactInfo;
+  @JsonKey(ignore: true)
+  $RestorePasswordCopyWith<RestorePassword> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

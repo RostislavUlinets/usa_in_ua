@@ -177,4 +177,23 @@ class FirebaseAuthFacade implements IAuthFacade {
       return left(const AuthFailure.serverError());
     }
   }
+
+  @override
+  Future<Either<AuthFailure, Unit>> restorePassword(
+      {required String contactInfo}) async {
+    try {
+      if (contactInfo.startsWith('+')) {
+        FireStoreDatabase database = FireStoreDatabase();
+        UserModel? user = await database.findUserByPhoneNumber(contactInfo);
+        if (user == null) {
+          throw FirebaseAuthException(code: 'User not found');
+        }
+        contactInfo = user.email;
+      }
+      await _firebaseAuth.sendPasswordResetEmail(email: contactInfo);
+      return right(unit);
+    } catch (_) {
+      return left(const AuthFailure.serverError());
+    }
+  }
 }

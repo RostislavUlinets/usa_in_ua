@@ -225,5 +225,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
     );
+    on<RestorePassword>(
+      (event, emit) async {
+        emit(
+          state.copyWith(
+            isSubmitting: true,
+            authFailureOrSuccessOption: none(),
+          ),
+        );
+
+        final failureOrSuccess = await _authFacade.restorePassword(
+          contactInfo: event.contactInfo,
+        );
+
+        emit(
+          state.copyWith(
+            isSubmitting: false,
+            authFailureOrSuccessOption: some(failureOrSuccess),
+          ),
+        );
+      },
+    );
   }
 }

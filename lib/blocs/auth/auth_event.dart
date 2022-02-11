@@ -14,4 +14,5 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.signInWithPhoneNumberAndPasswordPressed() =
       SignInWithPhoneNumberAndPasswordPressed;
   const factory AuthEvent.signInWithGooglePressed() = SignInWithGooglePressed;
+  const factory AuthEvent.restorePassword(String contactInfo) = RestorePassword;
 }

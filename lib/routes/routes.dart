@@ -25,9 +25,9 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => const OtpScreen(),
         );
-      case RestorePassword.routeName:
+      case RestoringPassword.routeName:
         return MaterialPageRoute(
-          builder: (context) => const RestorePassword(),
+          builder: (context) => const RestoringPassword(),
         );
       case RegistrationComplete.routeName:
         return MaterialPageRoute(
