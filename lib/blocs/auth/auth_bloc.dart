@@ -116,12 +116,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         ),
       );
 
-      // authResult.fold(
-      //   (l) => null,
-      //   (r) => add(
-      //     const LinkEmailWithPhone(),
-      //   ),
-      // );
+      authResult.fold(
+        (l) => null,
+        (r) => add(
+          const LinkEmailWithPhone(),
+        ),
+      );
     });
     on<SignInWithPhoneNumberAndPasswordPressed>(
       (event, emit) async {

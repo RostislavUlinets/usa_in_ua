@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:usa_in_ua/models/user/user.dart';
@@ -22,9 +21,12 @@ class FireStoreDatabase {
   }
 
   Future<UserModel?> findUserByPhoneNumber(String phoneNumber) async {
-    
     QuerySnapshot<Object?> documentSnapshot =
         await userCollection.where('phone', isEqualTo: phoneNumber).get();
+
+    if (documentSnapshot.docs.isEmpty) {
+      return null;
+    }
 
     return UserModel(
       uid: documentSnapshot.docs[0]['uid'],

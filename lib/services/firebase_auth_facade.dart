@@ -28,6 +28,10 @@ class FirebaseAuthFacade implements IAuthFacade {
   }) async {
     final phoneNumberStr = phoneNumber.getOrCrash();
     final completer = Completer<Either<AuthFailure, String>>();
+    final FireStoreDatabase database = FireStoreDatabase();
+    if (await database.findUserByPhoneNumber(phoneNumberStr) != null) {
+      return left(const AuthFailure.phoneNumberAlreadyInUse());
+    }
     try {
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumberStr,

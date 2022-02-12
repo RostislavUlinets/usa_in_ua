@@ -265,10 +265,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               context,
                               RegistrationScreen.routeName,
                             );
-                            // Navigator.pushNamed(
-                            //   context,
-                            //   OtpScreen.routeName,
-                            // );
                           },
                           child: Row(
                             children: [

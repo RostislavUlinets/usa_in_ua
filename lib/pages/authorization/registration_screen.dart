@@ -34,9 +34,6 @@ class RegistrationScreen extends StatelessWidget {
             (_) {},
           ),
         );
-        // if(state.verificationId != ''){
-        //   Navigator.pushNamed(context, OtpScreen.routeName);
-        // }
       },
       builder: (context, state) {
         return Scaffold(
