@@ -76,11 +76,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           );
 
           getVarificationResult.fold(
-            (l) => failureOrSuccess = left(l),
+            (l) {
+              failureOrSuccess = left(l);
+            },
             (r) => emit(
               state.copyWith(
                 verificationId: r,
               ),
+            ),
+          );
+
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              authFailureOrSuccessOption: optionOf(failureOrSuccess),
             ),
           );
         }

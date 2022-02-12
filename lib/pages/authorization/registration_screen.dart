@@ -31,7 +31,12 @@ class RegistrationScreen extends StatelessWidget {
                 ),
               ).show(context);
             },
-            (_) {},
+            (_) {
+              Navigator.pushNamed(
+                context,
+                OtpScreen.routeName,
+              );
+            },
           ),
         );
       },
@@ -243,10 +248,6 @@ class RegistrationScreen extends StatelessWidget {
                       context.read<AuthBloc>().add(
                             const AuthEvent.verifyPhoneNumber(),
                           );
-                      Navigator.pushReplacementNamed(
-                        context,
-                        OtpScreen.routeName,
-                      );
                     },
                     child: Container(
                       width: double.infinity,

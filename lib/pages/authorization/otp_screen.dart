@@ -23,6 +23,11 @@ class _OtpScreenState extends State<OtpScreen> {
   String currentText = "";
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
@@ -120,14 +125,10 @@ class _OtpScreenState extends State<OtpScreen> {
                         selectedColor: AppColors.text,
                       ),
                       cursorColor: Colors.black,
-                      animationDuration: Duration(milliseconds: 300),
+                      animationDuration: const Duration(milliseconds: 300),
                       enableActiveFill: true,
                       keyboardType: TextInputType.number,
-                      onCompleted: (v) {
-                        print("Completed");
-                      },
                       onChanged: (value) {
-                        print(value);
                         setState(
                           () {
                             currentText = value;
@@ -135,7 +136,6 @@ class _OtpScreenState extends State<OtpScreen> {
                         );
                       },
                       beforeTextPaste: (text) {
-                        print("Allowing to paste $text");
                         return true;
                       },
                     ),
