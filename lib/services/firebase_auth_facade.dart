@@ -11,6 +11,7 @@ import 'package:usa_in_ua/models/auth/domain/auth_failure.dart';
 import 'package:usa_in_ua/models/auth/domain/i_auth_facade.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
 import 'package:usa_in_ua/models/user/user.dart';
+import 'package:usa_in_ua/services/admin_imitator.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
@@ -28,10 +29,10 @@ class FirebaseAuthFacade implements IAuthFacade {
   }) async {
     final phoneNumberStr = phoneNumber.getOrCrash();
 
-    final FireStoreDatabase database = FireStoreDatabase();
+    final AdminImitator adminSdk = AdminImitator();
 
     final UserModel? user =
-        await database.findUserByPhoneNumber(phoneNumberStr);
+        await adminSdk.findUserByPhoneNumber(phoneNumberStr);
     try {
       if (user != null) {
         return left(const AuthFailure.phoneNumberAlreadyInUse());
@@ -109,8 +110,8 @@ class FirebaseAuthFacade implements IAuthFacade {
     try {
       String phoneNumberStr = phoneNumber.getOrCrash();
       String passwordStr = password.getOrCrash();
-      FireStoreDatabase database = FireStoreDatabase();
-      UserModel? user = await database.findUserByPhoneNumber(phoneNumberStr);
+      AdminImitator adminSdk = AdminImitator();
+      UserModel? user = await adminSdk.findUserByPhoneNumber(phoneNumberStr);
       final authCredential = EmailAuthProvider.credential(
         email: user!.email,
         password: passwordStr,
@@ -182,8 +183,8 @@ class FirebaseAuthFacade implements IAuthFacade {
       {required String contactInfo}) async {
     try {
       if (contactInfo.startsWith('+')) {
-        FireStoreDatabase database = FireStoreDatabase();
-        UserModel? user = await database.findUserByPhoneNumber(contactInfo);
+        AdminImitator adminSdk = AdminImitator();
+        UserModel? user = await adminSdk.findUserByPhoneNumber(contactInfo);
         if (user == null) {
           throw FirebaseAuthException(code: 'User not found');
         }

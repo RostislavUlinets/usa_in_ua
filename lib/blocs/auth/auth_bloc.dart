@@ -75,23 +75,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             phoneNumber: state.phoneNumber,
           );
 
-          getVarificationResult.fold(
-            (l) {
-              failureOrSuccess = left(l);
-            },
-            (r) => emit(
+          getVarificationResult.fold((l) {
+            failureOrSuccess = left(l);
+          }, (r) {
+            emit(
               state.copyWith(
                 verificationId: r,
               ),
-            ),
-          );
-
-          emit(
-            state.copyWith(
-              isSubmitting: false,
-              authFailureOrSuccessOption: optionOf(failureOrSuccess),
-            ),
-          );
+            );
+            failureOrSuccess = right(unit);
+          });
         }
 
         emit(
@@ -118,15 +111,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         otpCode: event.otpCode,
       );
 
-      emit(
-        state.copyWith(
-          isSubmitting: false,
-          authFailureOrSuccessOption: some(authResult),
-        ),
-      );
-
       authResult.fold(
-        (l) => null,
+        (l) {
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              authFailureOrSuccessOption: some(authResult),
+            ),
+          );
+        },
         (r) => add(
           const LinkEmailWithPhone(),
         ),

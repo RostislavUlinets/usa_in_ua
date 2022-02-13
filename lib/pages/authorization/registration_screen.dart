@@ -32,7 +32,7 @@ class RegistrationScreen extends StatelessWidget {
               ).show(context);
             },
             (_) {
-              Navigator.pushNamed(
+              Navigator.pushReplacementNamed(
                 context,
                 OtpScreen.routeName,
               );
