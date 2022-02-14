@@ -129,7 +129,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (event, emit) async {
         Either<AuthFailure, Unit>? failureOrSuccess;
 
-        if (state.phoneNumber.isValid()) {
+        if (state.phoneNumber.isValid() && state.password.isValid()) {
           emit(
             state.copyWith(
               isSubmitting: true,

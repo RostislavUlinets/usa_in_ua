@@ -156,7 +156,7 @@ class _RestoringPasswordState extends State<RestoringPassword> {
                             const Padding(
                               padding: EdgeInsets.all(15.0),
                               child: Text(
-                                'Я уже зарегистрирован',
+                                'Я вспомнил свой пароль',
                                 style: TextStyle(
                                   color: AppColors.text,
                                   fontWeight: FontWeight.w800,
