@@ -49,7 +49,7 @@ class _OtpScreenState extends State<OtpScreen> {
               FlushbarHelper.createSuccess(
                       message: 'Регистрация прошла успешно')
                   .show(context);
-              Future.delayed(const Duration(seconds: 2), () {
+              Future.delayed(const Duration(seconds: 3), () {
                 Navigator.pushReplacementNamed(
                   context,
                   RegistrationComplete.routeName,
@@ -177,7 +177,6 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                   ),
-                  // const Otp(),
                   const ResendOTP(),
                   Row(
                     children: [

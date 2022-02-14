@@ -40,6 +40,12 @@ class _RestoringPasswordState extends State<RestoringPassword> {
               FlushbarHelper.createSuccess(
                       message: 'Пароль был отправлен вам на почту.')
                   .show(context);
+              Future.delayed(const Duration(seconds: 3), () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  LoginScreen.routeName,
+                );
+              });
             },
           ),
         );

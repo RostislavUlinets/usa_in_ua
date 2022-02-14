@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,10 +40,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ).show(context);
             },
             (_) {
-              Navigator.pushReplacementNamed(
-                context,
-                RegistrationComplete.routeName,
-              );
+              if (FirebaseAuth.instance.currentUser == null) {
+                Navigator.pushReplacementNamed(
+                  context,
+                  RegistrationComplete.routeName,
+                );
+              }
             },
           ),
         );

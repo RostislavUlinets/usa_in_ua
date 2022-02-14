@@ -225,7 +225,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(
           state.copyWith(
             isSubmitting: false,
-            authFailureOrSuccessOption: some(failureOrSuccess),
+            authFailureOrSuccessOption: optionOf(failureOrSuccess),
           ),
         );
       },
