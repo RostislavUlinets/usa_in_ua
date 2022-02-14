@@ -2,6 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:usa_in_ua/models/user/user.dart';
 
 class AdminImitator {
+  AdminImitator._();
+
+  static final AdminImitator _instance = AdminImitator._();
+
+  factory AdminImitator() {
+    return _instance;
+  }
+
   Future<UserModel?> findUserByPhoneNumber(String phoneNumber) async {
     final CollectionReference userCollection =
         FirebaseFirestore.instance.collection('users');

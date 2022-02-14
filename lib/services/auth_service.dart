@@ -8,6 +8,14 @@ import 'package:usa_in_ua/models/user/user.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
+  AuthService._();
+
+  static final AuthService _instance = AuthService._();
+
+  factory AuthService() {
+    return _instance;
+  }
+
   Future<void> generateUserData({
     required UserName userName,
     required EmailAddress emailAddress,

@@ -112,8 +112,12 @@ class FirebaseAuthFacade implements IAuthFacade {
       String passwordStr = password.getOrCrash();
       AdminImitator adminSdk = AdminImitator();
       UserModel? user = await adminSdk.findUserByPhoneNumber(phoneNumberStr);
+      if (user == null) {
+        return left(
+            const AuthFailure.invalidPhoneNumberAndPasswordCombination());
+      }
       final authCredential = EmailAuthProvider.credential(
-        email: user!.email,
+        email: user.email,
         password: passwordStr,
       );
 
