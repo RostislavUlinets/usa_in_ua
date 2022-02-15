@@ -21,6 +21,8 @@ class AdminImitator {
       return null;
     }
 
+    // UserModel.fromJson();
+
     return UserModel(
       uid: documentSnapshot.docs[0]['uid'],
       name: documentSnapshot.docs[0]['name'],

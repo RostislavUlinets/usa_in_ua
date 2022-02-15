@@ -3,6 +3,8 @@ import 'dart:async';
 
 import 'package:usa_in_ua/resources/app_colors.dart';
 
+//BLOC OR CUBIT ( REFACTORING )
+
 class ResendOTP extends StatefulWidget {
   const ResendOTP({Key? key}) : super(key: key);
 

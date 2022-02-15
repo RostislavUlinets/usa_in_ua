@@ -14,18 +14,18 @@ class FireStoreDatabase {
 
   final String uid = FirebaseAuth.instance.currentUser!.uid;
 
-  final CollectionReference userCollection =
+  final CollectionReference _userCollection =
       FirebaseFirestore.instance.collection('users');
 
   Future<void> addUser(UserModel user) async {
-    await userCollection.doc(uid).set(user.toJson());
+    await _userCollection.doc(uid).set(user.toJson());
   }
 
   Future<void> updateUser(UserModel user) async {
-    await userCollection.doc(uid).update(user.toJson());
+    await _userCollection.doc(uid).update(user.toJson());
   }
 
   Future<void> deleteUser() async {
-    await userCollection.doc(uid).delete();
+    await _userCollection.doc(uid).delete();
   }
 }

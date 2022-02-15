@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:usa_in_ua/database/firestore_data.dart';
 import 'package:usa_in_ua/models/auth/domain/value_objects.dart';
 import 'package:usa_in_ua/models/user/user.dart';
@@ -14,6 +15,10 @@ class AuthService {
 
   factory AuthService() {
     return _instance;
+  }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 
   Future<void> generateUserData({

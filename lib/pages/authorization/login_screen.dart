@@ -10,6 +10,7 @@ import 'package:usa_in_ua/pages/authorization/restore_password.dart';
 import 'package:usa_in_ua/pages/authorization/widgets/login_form.dart';
 import 'package:usa_in_ua/resources/app_colors.dart';
 import 'package:usa_in_ua/resources/app_icons.dart';
+import 'package:usa_in_ua/services/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = '/login_screen';
@@ -196,6 +197,27 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: AppColors.button,
                         ),
                       ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () async {
+                      AuthService service = AuthService();
+                      await service.signOut();
+                    },
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(AppIcons.locker),
+                        const Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: Text(
+                            'Выйти',
+                            style: TextStyle(
+                              color: AppColors.text,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
